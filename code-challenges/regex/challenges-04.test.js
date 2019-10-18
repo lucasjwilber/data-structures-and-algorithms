@@ -62,7 +62,7 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  let regex = /^(oct|Oct|october|October)$/;
+  let regex = /^[oO]ct(ober)?$/;
   return regex.test(input);
   // let regex = /[Bb]an(anna)?/gi;
 // regex.test('Ban');
