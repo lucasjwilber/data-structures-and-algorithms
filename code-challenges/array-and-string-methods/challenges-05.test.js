@@ -201,12 +201,12 @@ const removeVowels = (str) => {
   let newArr = [];
   for (let i = 0; i < arr.length; i++) {
     if (
-      (arr[i] !== 'a') 
-      && (arr[i] !== 'e') 
-      && (arr[i] !== 'i') 
-      && (arr[i] !== 'o') 
+      (arr[i] !== 'a')
+      && (arr[i] !== 'e')
+      && (arr[i] !== 'i')
+      && (arr[i] !== 'o')
       && (arr[i] !== 'u')
-      ) {
+    ) {
       newArr.push(arr[i]);
     }
   }
@@ -227,22 +227,21 @@ const extractVowels = (str) => {
   let arr = str.split('');
   let withoutVowels = [];
   let vowels = [];
-  let results = [withoutVowels, withoutVowels];
   for (let i = 0; i < arr.length; i++) {
     if (
-      (arr[i] !== 'a') 
-      && (arr[i] !== 'e') 
-      && (arr[i] !== 'i') 
-      && (arr[i] !== 'o') 
+      (arr[i] !== 'a')
+      && (arr[i] !== 'e')
+      && (arr[i] !== 'i')
+      && (arr[i] !== 'o')
       && (arr[i] !== 'u')
-      ) {
+    ) {
       withoutVowels.push(arr[i]);
     } else {
       vowels.push(arr[i]);
     }
   }
   return [withoutVowels.join(''), vowels.sort().join('')];
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
