@@ -9,7 +9,7 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  return arr.reduce((previousValue, value) => previousValue + 1, 0);
+  return arr.reduce(previousValue => previousValue + 1, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,6 +72,7 @@ let starWarsData = [{
 const returnNames = (arr) => {
   return arr.reduce((newArr, value) => {
     newArr.push(value.name);
+    return newArr;
   }, []);
 };
 
@@ -84,10 +85,13 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  return str.split('').reduce((output, letter) => {
-    output += letter;
-    console.log(output);
-  }, '');
+  let arr = str.split('');
+  let arrRev = arr.reduce((string, letter) => {
+    console.log(string);
+    string.unshift(letter);
+    return string;
+  }, []);
+  return arrRev.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -140,7 +144,13 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((total, obj) => {
+    if (obj.children) {
+      return total + obj.children.length;
+    } else {
+      return total;
+    }
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -152,7 +162,9 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  return arr.reduce((average, current, index, array) => {
+    return average + (current / array.length);
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -173,7 +185,9 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  return arr.reduce((total, value) => {
+    return (isPrime(value) === true) ? total + 1 : total;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -256,25 +270,25 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return the string with the characters in reverse order', () => {
     expect(reversedString('Code 301')).toStrictEqual('103 edoC');
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the average of the numbers in the array', () => {
     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85])).toStrictEqual(64);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return a count of the prime numbers in the array', () => {
     expect(countPrimeNumbers([1, 2, 13, 64, 45, 56, 17, 8])).toStrictEqual(3);
   });
