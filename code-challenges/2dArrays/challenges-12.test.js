@@ -50,7 +50,7 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 const salesData = (hours, data) => {
   let obsArr = [];
   hours.forEach((value, index) => {
-    obsArr.push({sales: `${data[index]} cookies`, time: hours[index]});
+    obsArr.push({ sales: `${data[index]} cookies`, time: hours[index] });
   });
   return obsArr;
 };
@@ -119,7 +119,11 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  return numbers.reduce((total, arr) => {
+    return arr.reduce((total, num) => {
+      return num * total;
+    }, 1) * total;
+  }, 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,7 +143,9 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  return Math.round(weather.reduce((avg, temps) => {
+    return avg + temps.reduce((avg, temp) => avg + temp / temps.length, 0);
+  }, 0)) / weather.length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -160,7 +166,13 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let temps = [];
+  weather.forEach(week => {
+    temps.push(week.reduce((avg, day) => {
+      return avg + day / week.length;
+    }, 0));
+  });
+  return Math.round(temps.sort()[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -176,7 +188,17 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  let rows = str.split('\n');
+  for (let i = 0; i < rows.length; i++) {
+    rows[i] = rows[i].split(',');
+    let total = 0;
+    for (let j = 0; j < rows[i].length; j++) {
+      rows[i][j] = +rows[i][j];
+      total += rows[i][j];
+    }
+    rows[i] = total;
+  }
+  return rows;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -191,13 +213,13 @@ Run your tests from the console: jest challenge-12.test.js
 ------------------------------------------------------------------------------------------------ */
 
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should add the hourly totals array', () => {
     expect(grandTotal(cookieStores)).toStrictEqual([88, 153, 252, 286, 139, 161, 145, 232, 276, 207, 161, 169]);
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should create an object of data for each store', () => {
     expect(salesData(hoursOpen, grandTotal(cookieStores))).toStrictEqual([
       { sales: '88 cookies', time: '9 a.m.' },
@@ -219,13 +241,13 @@ xdescribe('Testing challenge 2', () => {
 });
 
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return the number 24', () => {
     expect(howManyTreats(errands)).toStrictEqual(24);
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   const battleshipData = [
     ['#', ' ', '#', ' '],
     ['#', ' ', '#', ' '],
@@ -263,14 +285,14 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return the lowest weekly average temperature within the data set', () => {
     expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
     expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return the total count for each row', () => {
     let result = excel('1,1,1\n4,4,4\n9,9,9');
     expect(result.length).toStrictEqual(3);
