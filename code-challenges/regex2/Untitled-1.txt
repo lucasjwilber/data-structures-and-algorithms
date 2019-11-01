@@ -1,0 +1,7 @@
+app.get('/quantities', (request, response) => {
+  response.render('quantities', {grocertyObjects: quantities});
+});
+
+
+
+
