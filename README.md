@@ -11,4 +11,3 @@ Write a Java method that takes in an array and returns the reverse.
 My approach was to iterate backwards over the inputted array and define the values of the new array in order with each iteration.
 
 ## Solution
-<!-- Embedded whiteboard image -->
