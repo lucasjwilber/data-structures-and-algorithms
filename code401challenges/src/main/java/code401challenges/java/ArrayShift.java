@@ -22,7 +22,7 @@ public class ArrayShift {
         return newArray;
     }
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 //        int[] testArr = {1, 2, 3, 6};
 //        int testNum = 5;
 //        System.out.println("Result with " + Arrays.toString(testArr) + " and number " + testNum);
@@ -32,5 +32,5 @@ public class ArrayShift {
 //        testNum = 69;
 //        System.out.println("Result with " + Arrays.toString(testArr2) + " and number " + testNum);
 //        System.out.println(Arrays.toString(insertShiftArray(testArr2, testNum)));
-    }
+//    }
 }
