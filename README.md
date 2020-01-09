@@ -28,3 +28,16 @@ My approach was to create an empty array with a length of the inputted array + 1
 [code](./code401challenges/src/main/java/code401challenges/java/ArrayShift.java)
 ![image](./assets/array-shift.jpg)
 
+
+# Array Binary Search
+401 Java challenge #3.
+
+## Challenge
+Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods, return the index of the array’s element that is equal to the search key, or -1 if the element does not exist.
+
+## Approach & Efficiency
+My approach was to start at the middle by taking the input array length / 2, then begin a while-loop where I compare the value at that index to the search key and keep track of the index of comparison. If the search key wasn't found, I add or subtract half of the difference between the input array length and the tracked index value to the index value, which continuously halves the current index value while moving towards the search key. If the maximum or minimum index values are reached and the search key isn't found, I return -1;
+
+## Solution
+[code](./code401challenges/src/main/java/code401challenges/java/BinarySearch.java)
+![image](./assets/binarySearch.jpg)
