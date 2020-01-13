@@ -20,6 +20,10 @@ public class LinkedListTest {
         }
     }
 
+    @Test public void canCreateAnEmptyLinkedList() {
+        LinkedList newList = new LinkedList();
+        assertTrue(newList.head == null);
+    }
     @Test public void checkInsert() {
         LinkedList testList = new LinkedList();
         testList.insert(1);
@@ -31,8 +35,14 @@ public class LinkedListTest {
         assertTrue(testList.head.value == 9);
         assertEquals(getListLength(testList), 5);
     }
+    @Test public void checkHeadIsLastNodeAdded() {
+        LinkedList testList = new LinkedList();
+        testList.insert(4);
+        testList.insert(8);
 
-    @Test public void testIncludes() {
+        assertTrue(testList.head.value == 8);
+    }
+    @Test public void testIncludesInsertedValues() {
         LinkedList testList = new LinkedList();
         testList.insert(23);
         testList.insert(3453);
@@ -43,7 +53,16 @@ public class LinkedListTest {
         assertTrue(testList.includes(23456));
         assertFalse(testList.includes(55));
     }
+    @Test public void testOnlyIncludesInsertedValues() {
+        LinkedList testList = new LinkedList();
+        testList.insert(23);
+        testList.insert(3453);
+        testList.insert(253);
+        testList.insert(23456);
+        testList.insert(9);
 
+        assertFalse(testList.includes(55));
+    }
     @Test public void testToString() {
         LinkedList testList = new LinkedList();
         testList.insert(1);
@@ -51,5 +70,19 @@ public class LinkedListTest {
         testList.insert(3);
         testList.insert(4);
         testList.insert(5);
+    }
+    @Test public void listToStringContainsAllValues() {
+        LinkedList testList = new LinkedList();
+        testList.insert(135);
+        testList.insert(4);
+        testList.insert(6);
+        testList.insert(7);
+        testList.insert(65);
+
+        assertTrue(testList.listToString().contains("135"));
+        assertTrue(testList.listToString().contains("4"));
+        assertTrue(testList.listToString().contains("6"));
+        assertTrue(testList.listToString().contains("7"));
+        assertTrue(testList.listToString().contains("65"));
     }
 }
