@@ -20,13 +20,36 @@ public class LinkedListTest {
         }
     }
 
-    @Test public void checkListLength() {
+    @Test public void checkInsert() {
+        LinkedList testList = new LinkedList();
+        testList.insert(1);
+        testList.insert(3);
+        testList.insert(3);
+        testList.insert(7);
+        testList.insert(9);
+
+        assertTrue(testList.head.value == 9);
+        assertEquals(getListLength(testList), 5);
+    }
+
+    @Test public void testIncludes() {
+        LinkedList testList = new LinkedList();
+        testList.insert(23);
+        testList.insert(3453);
+        testList.insert(253);
+        testList.insert(23456);
+        testList.insert(9);
+
+        assertTrue(testList.includes(23456));
+        assertFalse(testList.includes(55));
+    }
+
+    @Test public void testToString() {
         LinkedList testList = new LinkedList();
         testList.insert(1);
         testList.insert(2);
         testList.insert(3);
         testList.insert(4);
         testList.insert(5);
-        assertEquals(getListLength(testList), 5);
     }
 }

@@ -6,7 +6,6 @@ public class LinkedList {
     class Node {
         int value;
         Node next;
-
         public Node(int value) {
             this.next = null;
             this.value = value;
@@ -32,10 +31,10 @@ public class LinkedList {
         return answer;
     }
 
-    //instructions say the result should end in "NULL" but it would only say that if
-    //it was printing 'next' values, not actual node values, so I didn't do it that way:
+    //Instructions say the returned string should end with "NULL" but it would only say that if
+    //it was printing 'next' values, not actual node values. I didn't do it that way:
     public String listToString() {
-        //get head value first. need to do it this way so that we can append the '->'s in between.
+        //Get head value first. Need to do it this way so that we can append the '->'s in between.
         StringBuilder stringResult = new StringBuilder();
         String stringFragment ="{ " + this.head.value + " }";
         stringResult.append(stringFragment);
@@ -48,6 +47,5 @@ public class LinkedList {
         }
         return stringResult.toString();
     }
-
 
 }
