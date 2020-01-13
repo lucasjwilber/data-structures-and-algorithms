@@ -1,27 +1,44 @@
 package linkedList;
 
-public class LinkedList {
-    Node head = null;
+public class DoublyLinkedList {
+    DoublyNode head = null;
 
-    public class Node {
+    public class DoublyNode {
         int value;
-        Node next;
-        public Node(int value) {
+        DoublyNode next;
+        DoublyNode previous;
+
+        public DoublyNode(int value) {
             this.next = null;
+            this.previous = null;
             this.value = value;
         }
     }
 
+    public DoublyNode getLastNode() {
+        DoublyNode head = this.head;
+        DoublyNode current = this.head;
+        while (current.next != head) {
+            current = current.next;
+        }
+        return current;
+    }
+
     public void insert(int value) {
-        Node newNode = new Node(value);
+        DoublyNode newNode = new DoublyNode(value);
         newNode.next = head;
+        newNode.previous = head;
+        if (head != null) {
+            newNode.previous = head.previous;
+            head.previous = newNode;
+        }
         head = newNode;
     }
 
     public boolean includes(int value) {
         boolean answer = false;
-        Node current = this.head;
-        while (current.next != null) {
+        DoublyNode current = this.head;
+        while (current.next != this.head) {
             if (current.value == value) {
                 answer = true;
                 break;
@@ -39,8 +56,8 @@ public class LinkedList {
         String stringFragment ="{ " + this.head.value + " }";
         stringResult.append(stringFragment);
 
-        Node current = this.head;
-        while (current.next != null) {
+        DoublyNode current = this.head;
+        while (current.next != this.head && current.next != null) {
             current = current.next;
             stringFragment = " -> { " + current.value + " }";
             stringResult.append(stringFragment);

@@ -10,7 +10,7 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        LinkedList lilist = new LinkedList();
+        DoublyLinkedList lilist = new DoublyLinkedList();
         lilist.insert(1);
         lilist.insert(2);
         lilist.insert(3);
