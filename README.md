@@ -41,3 +41,23 @@ My approach was to start at the middle by taking the input array length / 2, the
 ## Solution
 [code](./code401challenges/src/main/java/code401challenges/java/BinarySearch.java)
 ![image](./assets/binarySearch.jpg)
+
+
+# Singly Linked List
+
+## Challenge
+Create a LinkedList class from scratch, along with insert() to add Nodes and  toString() to print the entire LinkedList.
+
+## Approach & Efficiency
+My approach inserts new nodes at the head of the list, so that inserting new nodes is O(1) rather than O(n).
+
+## API
+  -`insert(int value)`
+  Inserts a new Node into the Linked List
+  -`includes(int input)`
+  Checks the value of each Node in the list agains the `input` and returns true if found, false if not.
+  -`listToString()`
+  Prints each value of the Linked List in "{ [Head value] } -> { [next Node value]} ->..." format.
+  
+## Solution
+[code](./Data-Structures/src/main/java/linkedList/LinkedList.java)
