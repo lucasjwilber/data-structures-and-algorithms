@@ -1,5 +1,7 @@
 package LinkedList.java;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList {
     public Node head = null;
 
@@ -46,7 +48,7 @@ public class LinkedList {
         }
     }
 
-    public void insertBefore(int value, int newVal) throws ArrayIndexOutOfBoundsException {
+    public void insertBefore(int value, int newVal) throws NoSuchElementException {
         if (this.includes(value)) {
             Node current = this.head;
             Node newNode = new Node(value);
@@ -60,19 +62,27 @@ public class LinkedList {
                 }
                 current = current.next;
             }
+        } else {
+            System.out.println("The given value does not exist in the list.");
+            throw new NoSuchElementException();
         }
     }
 
-    public void insertAfter(int value, int newVal) {
-        Node current = this.head;
-        Node newNode = new Node(newVal);
-        while (current.next != null) {
-            if (current.value == value) {
-                newNode.next = current.next;
-                current.next = newNode;
-                return;
+    public void insertAfter(int value, int newVal) throws NoSuchElementException{
+        if (this.includes(value)) {
+            Node current = this.head;
+            Node newNode = new Node(newVal);
+            while (current.next != null) {
+                if (current.value == value) {
+                    newNode.next = current.next;
+                    current.next = newNode;
+                    return;
+                }
+                current = current.next;
             }
-            current = current.next;
+        } else {
+            System.out.println("The given value does not exist in the list.");
+            throw new NoSuchElementException();
         }
     }
 }
