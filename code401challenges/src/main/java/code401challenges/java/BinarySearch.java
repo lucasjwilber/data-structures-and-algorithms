@@ -10,9 +10,11 @@ public class BinarySearch {
         while (currentNumber != searchKey) {
             cycleCount++;
             if (searchKey > currentNumber) {
+                //go to the right half of the current index
                 currentIndex += (sortedArray.length - currentIndex) / 2;
             }
             if (searchKey < currentNumber) {
+                //go to the left half of the current index
                 currentIndex -= (sortedArray.length - currentIndex) / 2;
             }
             currentNumber = sortedArray[currentIndex];
