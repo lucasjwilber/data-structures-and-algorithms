@@ -10,12 +10,14 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+//        DoublyLinkedList lilist = new DoublyLinkedList();
         LinkedList lilist = new LinkedList();
         lilist.insert(1);
         lilist.insert(2);
         lilist.insert(3);
         lilist.insert(4);
         lilist.insert(5);
-        System.out.println(lilist.listToString());
+//        System.out.println(lilist.listToString());
+        System.out.println(lilist.head.toString());
     }
 }

@@ -1,11 +1,11 @@
-package linkedList;
+package LinkedList.java;
 
 public class LinkedList {
-    Node head = null;
+    public Node head = null;
 
     public class Node {
-        int value;
-        Node next;
+        public int value;
+        public Node next;
         public Node(int value) {
             this.next = null;
             this.value = value;
