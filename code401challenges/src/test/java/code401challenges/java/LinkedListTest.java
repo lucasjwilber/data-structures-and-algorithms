@@ -84,6 +84,11 @@ public class LinkedListTest {
         testList.append(1);
         assertEquals(1, testList.head.next.next.value);
     }
+    @Test public void appendWorksOnEmptyList() {
+        LinkedList testList = new LinkedList();
+        testList.append(5);
+        assertEquals(5, testList.head.value);
+    }
     @Test public void checkMultipleAppends() {
         testList.append(98);
         testList.append(99);
