@@ -1,6 +1,6 @@
 package code401challenges.java;
 
-import LinkedList.LinkedList;
+import LinkedList.java.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -23,72 +23,45 @@ public class LinkedListTest {
         }
     }
 
-//    LinkedList testList;
-//    @Before
-//    public void setUp() {
-//        testList = new LinkedList();
-//        testList.insert(1);
-//        testList.insert(3);
-//        testList.insert(43);
-//        testList.insert(7);
-//        testList.insert(2345);
-//        testList.insert(324);
-//        testList.insert(637);
-//        testList.insert(45);
-//        testList.insert(0);
-//        testList.insert(0);
-//    }
+    LinkedList testList;
+    @Before
+    public void setUp() {
+        testList = new LinkedList();
+        testList.insert(1);
+        testList.insert(3);
+        testList.insert(43);
+        testList.insert(-7);
+        testList.insert(2345);
+        testList.insert(-324);
+        testList.insert(637);
+        testList.insert(45);
+        testList.insert(0);
+        testList.insert(11);
+    }
 
     @Test public void canCreateAnEmptyLinkedList() {
         LinkedList newList = new LinkedList();
         assertNull(newList.head);
     }
     @Test public void checkInsert() {
-        LinkedList testList = new LinkedList();
-        testList.insert(1);
-        testList.insert(3);
-        testList.insert(3);
-        testList.insert(7);
-        testList.insert(9);
-
-        assertTrue(testList.head.value == 9);
-        assertEquals(getListLength(testList), 5);
+        assertTrue(testList.head.value == 11);
+        assertEquals(getListLength(testList), 10);
     }
     @Test public void checkHeadIsLastNodeAdded() {
-        LinkedList testList = new LinkedList();
-        testList.insert(4);
         testList.insert(8);
 
         assertTrue(testList.head.value == 8);
     }
     @Test public void testIncludesInsertedValues() {
-        LinkedList testList = new LinkedList();
-        testList.insert(23);
-        testList.insert(3453);
-        testList.insert(253);
-        testList.insert(23456);
-        testList.insert(9);
-
-        assertTrue(testList.includes(23456));
-        assertFalse(testList.includes(55));
+        assertTrue(testList.includes(637));
     }
     @Test public void testOnlyIncludesInsertedValues() {
-        LinkedList testList = new LinkedList();
-        testList.insert(23);
-        testList.insert(3453);
-        testList.insert(253);
-        testList.insert(23456);
-        testList.insert(9);
-
-        assertFalse(testList.includes(55));
+        assertFalse(testList.includes(666));
     }
     @Test public void testToString() {
-        LinkedList testList = new LinkedList();
-        testList.insert(1);
-        testList.insert(2);
-        testList.insert(3);
-        testList.insert(4);
-        testList.insert(5);
+        assertTrue(testList.head.toString().contains("43"));
+        assertTrue(testList.head.toString().contains("11"));
+        assertTrue(testList.head.toString().contains("0"));
     }
     @Test public void listToStringContainsAllValues() {
         LinkedList testList = new LinkedList();
@@ -109,27 +82,22 @@ public class LinkedListTest {
         testList.insert(135);
         testList.insert(4);
         testList.append(1);
-
         assertEquals(1, testList.head.next.next.value);
     }
+    @Test public void checkMultipleAppends() {
+        testList.append(98);
+        testList.append(99);
+        testList.append(100);
+        assertTrue(testList.head.toString().contains("{ 98 } -> { 99 } -> { 100 } -> NULL"));
+    }
     @Test public void checkInsertBefore() {
-        LinkedList testList = new LinkedList();
-        testList.insert(5);
-        testList.insert(135);
-        testList.insert(35);
-        testList.insert(22);
-        testList.insertBefore(135, 4);
-
-        System.out.println(testList.head.toString());
+        testList.insertBefore(-7, 4);
+        assertTrue(testList.head.toString().contains("{ 4 } -> { -7 }"));
     }
 
     @Test public void checkInsertAfter() {
-        LinkedList testList = new LinkedList();
-        testList.insert(135);
-        testList.insert(4);
-        testList.insert(6);
-        testList.insertAfter(4, 99);
-        //6 4 99 135
-        assertEquals(99, testList.head.next.next.value);
+        testList.insertAfter(43, 99);
+        assertTrue(testList.head.toString().contains("{ 43 } -> { 99 }"));
     }
+
 }
