@@ -1,5 +1,6 @@
 package linkedList;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -20,9 +21,25 @@ public class LinkedListTest {
         }
     }
 
+//    LinkedList testList;
+//    @Before
+//    public void setUp() {
+//        testList = new LinkedList();
+//        testList.insert(1);
+//        testList.insert(3);
+//        testList.insert(43);
+//        testList.insert(7);
+//        testList.insert(2345);
+//        testList.insert(324);
+//        testList.insert(637);
+//        testList.insert(45);
+//        testList.insert(0);
+//        testList.insert(0);
+//    }
+
     @Test public void canCreateAnEmptyLinkedList() {
         LinkedList newList = new LinkedList();
-        assertTrue(newList.head == null);
+        assertNull(newList.head);
     }
     @Test public void checkInsert() {
         LinkedList testList = new LinkedList();
@@ -79,10 +96,38 @@ public class LinkedListTest {
         testList.insert(7);
         testList.insert(65);
 
-        assertTrue(testList.listToString().contains("135"));
-        assertTrue(testList.listToString().contains("4"));
-        assertTrue(testList.listToString().contains("6"));
-        assertTrue(testList.listToString().contains("7"));
-        assertTrue(testList.listToString().contains("65"));
+        assertTrue(testList.head.toString().contains("135"));
+        assertTrue(testList.head.toString().contains("4"));
+        assertTrue(testList.head.toString().contains("6"));
+        assertTrue(testList.head.toString().contains("7"));
+        assertTrue(testList.head.toString().contains("65"));
+    }
+    @Test public void checkAppendAddsToEnd() {
+        LinkedList testList = new LinkedList();
+        testList.insert(135);
+        testList.insert(4);
+        testList.append(1);
+
+        assertEquals(1, testList.head.next.next.value);
+    }
+    @Test public void checkInsertBefore() {
+        LinkedList testList = new LinkedList();
+        testList.insert(5);
+        testList.insert(135);
+        testList.insert(35);
+        testList.insert(22);
+        testList.insertBefore(135, 4);
+
+        System.out.println(testList.head.toString());
+    }
+
+    @Test public void checkInsertAfter() {
+        LinkedList testList = new LinkedList();
+        testList.insert(135);
+        testList.insert(4);
+        testList.insert(6);
+        testList.insertAfter(4, 99);
+        //6 4 99 135
+        assertEquals(99, testList.head.next.next.value);
     }
 }

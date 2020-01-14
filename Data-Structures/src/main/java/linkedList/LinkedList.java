@@ -10,6 +10,10 @@ public class LinkedList {
             this.next = null;
             this.value = value;
         }
+
+        public String toString() {
+            return "{ " + this.value + " } -> " + (this.next == null ? "NULL" : this.next.toString());
+        }
     }
 
     public void insert(int value) {
@@ -31,20 +35,42 @@ public class LinkedList {
         return answer;
     }
 
-    //Instructions say the returned string should end with "NULL" but it would only say that if
-    //it was printing 'next' values, not actual node values. I didn't do it that way:
-    public String listToString() {
-        //Get head value first. Need to do it this way so that we can append the '->'s in between.
-        StringBuilder stringResult = new StringBuilder();
-        String stringFragment ="{ " + this.head.value + " }";
-        stringResult.append(stringFragment);
-
+    public void append(int value) {
         Node current = this.head;
+        Node newNode = new Node(value);
         while (current.next != null) {
             current = current.next;
-            stringFragment = " -> { " + current.value + " }";
-            stringResult.append(stringFragment);
         }
-        return stringResult.toString();
+        current.next = newNode;
+    }
+
+    public void insertBefore(int value, int newVal) throws ArrayIndexOutOfBoundsException {
+        if (this.includes(value)) {
+            Node current = this.head;
+            Node newNode = new Node(value);
+
+            while (current.next != null) {
+                if (current.value == value) {
+                    newNode.next = current.next;
+                    current.next = newNode;
+                    current.value = newVal;
+                    break;
+                }
+                current = current.next;
+            }
+        }
+    }
+
+    public void insertAfter(int value, int newVal) {
+        Node current = this.head;
+        Node newNode = new Node(newVal);
+        while (current.next != null) {
+            if (current.value == value) {
+                newNode.next = current.next;
+                current.next = newNode;
+                break;
+            }
+            current = current.next;
+        }
     }
 }
