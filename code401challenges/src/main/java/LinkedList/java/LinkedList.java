@@ -23,25 +23,27 @@ public class LinkedList {
     }
 
     public boolean includes(int value) {
-        boolean answer = false;
         Node current = this.head;
         while (current.next != null) {
             if (current.value == value) {
-                answer = true;
-                break;
+                return true;
             }
             current = current.next;
         }
-        return answer;
+        return false;
     }
 
     public void append(int value) {
-        Node current = this.head;
         Node newNode = new Node(value);
-        while (current.next != null) {
-            current = current.next;
+        if (this.head == null) {
+            this.head = newNode;
+        } else {
+            Node current = this.head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
         }
-        current.next = newNode;
     }
 
     public void insertBefore(int value, int newVal) throws ArrayIndexOutOfBoundsException {
@@ -54,7 +56,7 @@ public class LinkedList {
                     newNode.next = current.next;
                     current.next = newNode;
                     current.value = newVal;
-                    break;
+                    return;
                 }
                 current = current.next;
             }
@@ -68,7 +70,7 @@ public class LinkedList {
             if (current.value == value) {
                 newNode.next = current.next;
                 current.next = newNode;
-                break;
+                return;
             }
             current = current.next;
         }

@@ -7,6 +7,7 @@ public class BinarySearch {
         int currentNumber = sortedArray[currentIndex];
         int cycleCount = 0;
 
+
         while (currentNumber != searchKey) {
             cycleCount++;
             if (searchKey > currentNumber) {
