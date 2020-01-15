@@ -61,3 +61,28 @@ My approach inserts new nodes at the head of the list, so that inserting new nod
 ## Solution
 [code](./code401challenges/src/main/java/LinkedList/java/LinkedList.java)
 ![image](./assets/ll-insertions.jpg)
+
+
+
+# Linked List - kth From End
+
+## Challenge
+Write a method that, given a value `k`, finds the `k`th Node from the end of the Linked List, where the Linked List has a 0-based length.
+
+## Approach & Efficiency
+I first wrote a two-pass method that gets the length of the list on the first iteration, then iterates through again (length - k) times to arrive at the kth-from-the-end Node. I also wrote a one-pass method that creates an array of `k` length and at each iteration updates the indicies of the array to represent a segment of the last `k` values iterated over. When the loop reaches the end of the Linked List, index 0 of the array is the kth-from-the-end Node value.
+
+## API
+-`insert(int value)` Inserts a new Node into the Linked List 
+-`includes(int input)` Checks the value of each Node in the list agains the input and returns true if found, false if not. 
+-`[Node].listToString()` Prints each value of the Linked List starting at the specified Node in "{ [Node value] } -> { [next Node value] } ->..." format. Call it on the head to print the entire list.
+-`append(int value)` Inserts a new Node at the end of the list.
+-`insertBefore(int value, int newVal)` Uses includes() to check if `value` exists in the LL, and if it does, inserts a new Node with value `newVal` before it.
+-`insertAfter(int value, int newVal)` Uses includes() to check if `value` exists in the LL, and if it does, inserts a new Node with value `newVal` after it.
+-`kthFromEnd(int k)` Returns the value of the Node `k` from the end of the Linked List. O(2n)/time, O(1) space.
+-`onePassKthFromEnd(int k)` Returns the value of the Node `k` from the end of the Linked List. O(n) time, O(`k` + 1) space.
+
+
+## Solution
+[code](./code401challenges/src/main/java/LinkedList/java/LinkedList.java)
+![image](./assets/ll-kth-from-end.jpg)

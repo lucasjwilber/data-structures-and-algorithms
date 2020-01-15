@@ -98,7 +98,8 @@ public class LinkedList {
                 length++;
                 current = current.next;
             }
-            if (length <= k) {
+            if (k == 0) return current.value;
+            if (k > length) {
                 System.out.println("The list doesn't have that many values.");
                 throw new IndexOutOfBoundsException();
             } else {
@@ -119,11 +120,14 @@ public class LinkedList {
         throw new IndexOutOfBoundsException();
     }
 
-    
-    public int onePassKthFromEnd(int k) {
+
+    public int onePassKthFromEnd(int k) throws IndexOutOfBoundsException {
         Node current = this.head;
+        if (current == null || k < 0)  throw new IndexOutOfBoundsException();
         int[] lastK = new int[k];
+        int listLength = 0;
         while (current.next != null) {
+            listLength++;
             if (k > 0) {
                 for (int i = 1; i < k; i++) {
                     lastK[k - i] = lastK[k - i - 1];
@@ -132,12 +136,7 @@ public class LinkedList {
             }
             current = current.next;
         }
-        if (k <= 0) {
-            return current.value;
-        } else {
-            return lastK[k - 1];
-        }
+        if (listLength < k) throw new IndexOutOfBoundsException();
+        return (k == 0) ? current.value : lastK[k-1];
     }
-
-
 }
