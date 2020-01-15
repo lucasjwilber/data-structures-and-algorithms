@@ -111,7 +111,7 @@ public class LinkedListTest {
         testList.insert(3);
         testList.insert(43);
         testList.insert(-7);
-        assertEquals(3, testList.kthFromEnd(2));
+        assertEquals(43, testList.kthFromEnd(2));
     }
 
     @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_kIsTooHigh() {
@@ -120,15 +120,15 @@ public class LinkedListTest {
 
     @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_listIsEmpty() {
         testList = new LinkedList();
-        testList.kthFromEnd(1);
-    }
-
-    @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_kIsListLength() {
-        assertEquals(testList.head.value, testList.kthFromEnd(10));
-    }
-
-    @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_kIsZero() {
         testList.kthFromEnd(0);
+    }
+
+    @Test public void kthFromEnd_kIsListLength() {
+        assertEquals(testList.head.value, testList.kthFromEnd(9));
+    }
+
+    @Test public void kthFromEnd_kIsZero() {
+        assertEquals(1, testList.kthFromEnd(0));
     }
 
     @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_kIsNegative() {
@@ -140,16 +140,25 @@ public class LinkedListTest {
         assertEquals(3, testList.kthFromEnd(1));
     }
 
-    @Test public void onePassKWorks() {
-        testList = new LinkedList();
-        testList.insert(10);
-        testList.insert(-3);
-        testList.insert(12);
-        testList.insert(43);
-        testList.insert(-7);
-        assertEquals(12, testList.onePassKthFromEnd(2));
-        assertEquals(10, testList.onePassKthFromEnd(0));
-        assertEquals(-7, testList.onePassKthFromEnd(4));
+    @Test(expected = IndexOutOfBoundsException.class) public void onePassK_kIsGreaterThanListLength() {
+        testList.onePassKthFromEnd(999);
     }
 
+    @Test public void onePassK_kIsListLength() {
+        assertEquals(testList.head.value, testList.onePassKthFromEnd(9));
+    }
+
+    @Test public void onePassK_listLengthIsOne() {
+        LinkedList testList = new LinkedList();
+        testList.insert(50);
+        assertEquals(50, testList.onePassKthFromEnd(0));
+    }
+
+    @Test public void onePassK_kIsPositive() {
+        assertEquals(43, testList.onePassKthFromEnd(2));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class) public void onePassK_kIsNegative() {
+        testList.onePassKthFromEnd(-1);
+    }
 }
