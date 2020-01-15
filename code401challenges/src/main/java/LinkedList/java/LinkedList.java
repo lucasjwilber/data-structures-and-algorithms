@@ -68,7 +68,7 @@ public class LinkedList {
         }
     }
 
-    public void insertAfter(int value, int newVal) throws NoSuchElementException{
+    public void insertAfter(int value, int newVal) throws NoSuchElementException {
         if (this.includes(value)) {
             Node current = this.head;
             Node newNode = new Node(newVal);
@@ -84,5 +84,39 @@ public class LinkedList {
             System.out.println("The given value does not exist in the list.");
             throw new NoSuchElementException();
         }
+    }
+
+    public int kthFromEnd(int k) throws IndexOutOfBoundsException {
+        //one pass potential option: create array of k size, updating values during iteration. return index 0
+//        int[] lastSegment = new int[k];
+        if (this.head == null) {
+            System.out.println("The list is empty.");
+            throw new IndexOutOfBoundsException();
+        } else {
+            Node current = this.head;
+            int length = 1;
+            while (current.next != null) {
+                length++;
+                current = current.next;
+            }
+            if (length <= k) {
+                System.out.println("The list doesn't have that many values.");
+                throw new IndexOutOfBoundsException();
+            } else {
+                current = this.head;
+                int position = 1;
+                while (current.next != null) {
+                    if (position == length - k) {
+                        System.out.println("Found it!");
+                        return current.value;
+                    }
+                    position++;
+                    System.out.println(position);
+                    current = current.next;
+                }
+            }
+        }
+        System.out.println("Use a positive value.");
+        throw new IndexOutOfBoundsException();
     }
 }
