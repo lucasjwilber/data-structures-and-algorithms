@@ -140,4 +140,16 @@ public class LinkedListTest {
         assertEquals(3, testList.kthFromEnd(1));
     }
 
+    @Test public void onePassKWorks() {
+        testList = new LinkedList();
+        testList.insert(10);
+        testList.insert(-3);
+        testList.insert(12);
+        testList.insert(43);
+        testList.insert(-7);
+        assertEquals(12, testList.onePassKthFromEnd(2));
+        assertEquals(10, testList.onePassKthFromEnd(0));
+        assertEquals(-7, testList.onePassKthFromEnd(4));
+    }
+
 }
