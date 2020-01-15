@@ -105,4 +105,51 @@ public class LinkedListTest {
         assertTrue(testList.head.toString().contains("{ 43 } -> { 99 }"));
     }
 
+    @Test public void kthFromEnd_getsCorrectValue() {
+        testList = new LinkedList();
+        testList.insert(1);
+        testList.insert(3);
+        testList.insert(43);
+        testList.insert(-7);
+        assertEquals(3, testList.kthFromEnd(2));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_kIsTooHigh() {
+        testList.kthFromEnd(999);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_listIsEmpty() {
+        testList = new LinkedList();
+        testList.kthFromEnd(1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_kIsListLength() {
+        assertEquals(testList.head.value, testList.kthFromEnd(10));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_kIsZero() {
+        testList.kthFromEnd(0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class) public void kthFromEnd_kIsNegative() {
+        testList.kthFromEnd(-1);
+    }
+
+    @Test public void kThFromEnd_kIsOne() {
+        System.out.println(testList.head.toString());
+        assertEquals(3, testList.kthFromEnd(1));
+    }
+
+    @Test public void onePassKWorks() {
+        testList = new LinkedList();
+        testList.insert(10);
+        testList.insert(-3);
+        testList.insert(12);
+        testList.insert(43);
+        testList.insert(-7);
+        assertEquals(12, testList.onePassKthFromEnd(2));
+        assertEquals(10, testList.onePassKthFromEnd(0));
+        assertEquals(-7, testList.onePassKthFromEnd(4));
+    }
+
 }
