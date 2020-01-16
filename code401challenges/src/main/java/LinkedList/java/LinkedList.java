@@ -148,8 +148,8 @@ public class LinkedList {
         Node twoCurrent = two.head;
         Node onePrev = oneCurrent;
         Node twoPrev = twoCurrent;
-        LinkedList newList = new LinkedList();
-        newList.head = oneCurrent;
+//        LinkedList newList = new LinkedList();
+//        newList.head = oneCurrent;
 
         while (oneCurrent != null && twoCurrent != null) {
             //if the end of the first list is reached, splice them together
@@ -167,6 +167,6 @@ public class LinkedList {
             onePrev = oneCurrent;
             twoPrev = twoCurrent;
         }
-        return newList;
+        return one;
     }
 }
