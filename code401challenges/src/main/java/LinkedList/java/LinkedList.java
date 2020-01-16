@@ -1,5 +1,8 @@
 package LinkedList.java;
 
+import org.checkerframework.framework.qual.LiteralKind;
+
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
@@ -138,5 +141,34 @@ public class LinkedList {
         }
         if (listLength < k) throw new IndexOutOfBoundsException();
         return (k == 0) ? current.value : lastK[k-1];
+    }
+
+    public static LinkedList mergeLists(LinkedList one, LinkedList two) {
+        Node oneCurrent = one.head;
+        //if the first list is empty return the second one.
+        if (oneCurrent == null) return two;
+        Node twoCurrent = two.head;
+        Node onePrev = oneCurrent;
+        Node twoPrev = twoCurrent;
+//        LinkedList newList = new LinkedList();
+//        newList.head = oneCurrent;
+
+        while (oneCurrent != null && twoCurrent != null) {
+            //if the end of the first list is reached, splice them together
+            //i don't know why but if the second list is shorter than the first this happens on its own
+            if (oneCurrent.next == null) {
+                oneCurrent.next = twoCurrent;
+                break;
+            }
+            oneCurrent = oneCurrent.next;
+            twoCurrent = twoCurrent.next;
+
+            onePrev.next = twoPrev;
+            twoPrev.next = oneCurrent;
+
+            onePrev = oneCurrent;
+            twoPrev = twoCurrent;
+        }
+        return one;
     }
 }
