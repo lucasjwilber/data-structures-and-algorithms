@@ -161,4 +161,51 @@ public class LinkedListTest {
     @Test(expected = IndexOutOfBoundsException.class) public void onePassK_kIsNegative() {
         testList.onePassKthFromEnd(-1);
     }
+
+    @Test public void mergeLists_alternatesListNodes() {
+        LinkedList one = new LinkedList();
+        one.insert(5);
+        one.insert(3);
+        one.insert(1);
+        LinkedList two = new LinkedList();
+        two.insert(6);
+        two.insert(4);
+        two.insert(2);
+        LinkedList newList = LinkedList.mergeLists(one, two);
+        assertEquals(1, newList.head.value);
+        assertEquals(2, newList.head.next.value);
+        assertEquals(3, newList.head.next.next.value);
+        assertEquals(4, newList.head.next.next.next.value);
+    }
+
+    @Test public void mergeLists_firstListBiggerThanSecond() {
+        LinkedList one = new LinkedList();
+        one.insert(13);
+        one.insert(11);
+        one.insert(9);
+        one.insert(7);
+        one.insert(5);
+        one.insert(3);
+        one.insert(1);
+        LinkedList two = new LinkedList();
+        two.insert(2);
+        LinkedList newList = LinkedList.mergeLists(one, two);
+        System.out.println(newList.head.toString());
+    }
+
+    @Test public void mergeLists_firstListSmallerThanSecond() {
+        LinkedList one = new LinkedList();
+        one.insert(3);
+        one.insert(1);
+        LinkedList two = new LinkedList();
+        two.insert(14);
+        two.insert(12);
+        two.insert(10);
+        two.insert(8);
+        two.insert(6);
+        two.insert(4);
+        two.insert(2);
+        LinkedList newList = LinkedList.mergeLists(one, two);
+        System.out.println(newList.head.toString());
+    }
 }
