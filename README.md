@@ -40,11 +40,11 @@ My approach was to start at the middle by taking the input array length / 2, the
 ![image](./assets/binarySearch.jpg)
 
 
-
 # Linked List
 
 ## Challenge
 Create a linked list class, with a method that adds a new Node to the head of the list. Add methods to insert a node before and after a node with a given value, and at the end of the list. Add a method that converts the list into a string of Node values. Add a method that returns true or false if a given value exists in the Linked List.
+
 
 ## Approach & Efficiency
 My approach inserts new nodes at the head of the list, so that inserting new nodes is O(1) rather than O(n).
