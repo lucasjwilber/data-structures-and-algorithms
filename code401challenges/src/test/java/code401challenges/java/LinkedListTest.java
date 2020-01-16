@@ -208,4 +208,22 @@ public class LinkedListTest {
         LinkedList newList = LinkedList.mergeLists(one, two);
         System.out.println(newList.head.toString());
     }
+
+    @Test public void mergeLists_listOneIsEmpty() {
+        LinkedList one = new LinkedList();
+        one.insert(3);
+        one.insert(1);
+        LinkedList two = new LinkedList();
+        LinkedList newList = LinkedList.mergeLists(one, two);
+        assertEquals(1, newList.head.value);
+    }
+
+    @Test public void mergeLists_listTwoIsEmpty() {
+        LinkedList one = new LinkedList();
+        LinkedList two = new LinkedList();
+        two.insert(4);
+        two.insert(2);
+        LinkedList newList = LinkedList.mergeLists(one, two);
+        assertEquals(2, newList.head.value);
+    }
 }

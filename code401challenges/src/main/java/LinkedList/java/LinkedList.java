@@ -145,6 +145,8 @@ public class LinkedList {
 
     public static LinkedList mergeLists(LinkedList one, LinkedList two) {
         Node oneCurrent = one.head;
+        //if the first list is empty return the second one.
+        if (oneCurrent == null) return two;
         Node twoCurrent = two.head;
         Node onePrev = oneCurrent;
         Node twoPrev = twoCurrent;
