@@ -10,9 +10,5 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-
-        Stack testStack = new Stack();
-        testStack.push(5);
-        System.out.println(testStack.top.value);
     }
 }
