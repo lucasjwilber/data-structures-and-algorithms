@@ -3,6 +3,8 @@ package code401challenges.java;
 import LinkedList.java.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
+
+import static LinkedList.java.LinkedList.reverseLinkedList;
 import static org.junit.Assert.*;
 
 
@@ -226,4 +228,11 @@ public class LinkedListTest {
         LinkedList newList = LinkedList.mergeLists(one, two);
         assertEquals(2, newList.head.value);
     }
+
+    @Test public void reverse() {
+        System.out.println(testList.head.toString());
+        LinkedList reversed = reverseLinkedList(testList);
+        System.out.println(reversed.head.toString());
+    }
+
 }
