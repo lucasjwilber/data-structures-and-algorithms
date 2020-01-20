@@ -15,7 +15,9 @@ public class Stack {
         return poppedNode.value;
     }
 
-    public int peek() {
+    public int peek() throws NullPointerException {
+        if (this.top == null) throw new NullPointerException();
+
         return this.top.value;
     }
 
