@@ -150,10 +150,8 @@ public class LinkedList {
         Node twoCurrent = two.head;
         Node onePrev = oneCurrent;
         Node twoPrev = twoCurrent;
-//        LinkedList newList = new LinkedList();
-//        newList.head = oneCurrent;
 
-        while (oneCurrent != null && twoCurrent != null) {
+        while (twoCurrent != null) {
             //if the end of the first list is reached, splice them together
             //i don't know why but if the second list is shorter than the first this happens on its own
             if (oneCurrent.next == null) {
@@ -170,5 +168,44 @@ public class LinkedList {
             twoPrev = twoCurrent;
         }
         return one;
+    }
+
+
+    //courtesy of Michelle
+    public static LinkedList recursiveMerge(LinkedList one, LinkedList two) {
+        one.head = recursiveMerge(one.head, two.head);
+        return one;
+    }
+
+    public static Node recursiveMerge(Node head1, Node head2) {
+        if (head1 == null) {
+            return head2;
+        }
+        else {
+            head1.next = recursiveMerge(head2, head1.next);
+        }
+        return head1;
+    }
+
+    public static LinkedList reverseLinkedList(LinkedList list) {
+        if (list.head.next == null ) return list;
+        Node previous = list.head;
+        Node current = list.head;
+        Node next;
+
+        while (current.next != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+            if (current.next == null) {
+                current.next = previous;
+                break;
+            }
+        }
+
+        list.head = current;
+        System.out.println(list.head.toString());
+        return list;
     }
 }

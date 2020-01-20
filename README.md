@@ -115,3 +115,45 @@ This is an O(n) time/O(1) space solution.
 ## Solution
 [code](./code401challenges/src/main/java/LinkedList/java/LinkedList.java)
 ![image](./assets/ll-merge.jpg)
+
+
+
+# Stacks and Queues
+Two data structures based on linked lists. A stack is a First In, Last out linked list that inserts at the 'top' via the push() method and removes at the top via the pop() method. A queue is a linked list that adds at the 'rear' via the enqueue() method and removes at the 'front' via the dequeue() method. A queue maintains a First In, First Out order.
+
+## Challenge
+Create a Node class that has properties for the value stored in the Node, and a pointer to the next node.
+Create a Stack class that has a top property. It creates an empty Stack when instantiated.
+This object should be aware of a default empty value assigned to top when the stack is created.
+Define a method called push which takes any value as an argument and adds a new node with that value to the top of the stack with an O(1) Time performance.
+Define a method called pop that does not take any argument, removes the node from the top of the stack, and returns the node’s value.
+Define a method called peek that does not take an argument and returns the value of the node located on top of the stack, without removing it from the stack.
+Define a method called isEmpty that does not take an argument, and returns a boolean indicating whether or not the stack is empty.
+Create a Queue class that has a front property. It creates an empty Queue when instantiated.
+This object should be aware of a default empty value assigned to front when the queue is created.
+Define a method called enqueue which takes any value as an argument and adds a new node with that value to the back of the queue with an O(1) Time performance.
+Define a method called dequeue that does not take any argument, removes the node from the front of the queue, and returns the node’s value.
+Define a method called peek that does not take an argument and returns the value of the node located in the front of the queue, without removing it from the queue.
+Define a method called isEmpty that does not take an argument, and returns a boolean indicating whether or not the queue is empty.
+
+## Approach & Efficiency
+I used a similar approach to what I used in my Linked List classes. The stack and queue both insert and remove Nodes at O(1).
+
+## API
+Stack:
+  -`push(int value)` Adds a new Node to the top of the stack with the given value.
+
+  -`pop()` Removes the top Node from the stack and returns its value.
+
+  -`peek()` Returns the value of the top Node in the stack. Throws a Null Pointer Exception if the stack is empty.
+
+  -`isEmpty()` Returns true if the stack is empty, else false.
+
+Queue:
+  -`enqueue(int value)` Adds a new Node to the rear of the queue with the given value.
+
+  -`dequeue()` Removes the front Node from the queue and returns its value.
+
+  -`peek()` Returns the value of the front Node in the queue. Throws a Null Pointer Exception if the queue is empty.
+
+  -`isEmpty()` Returns true if the queue is empty, else false.
