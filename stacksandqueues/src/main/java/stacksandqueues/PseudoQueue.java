@@ -25,7 +25,6 @@ public class PseudoQueue {
     }
 
     public int dequeue() throws NullPointerException {
-
         Stack<Integer> tempStack = new Stack<Integer>();
         //flip rear into a temp stack
         while (rear.top != null) {
@@ -39,19 +38,5 @@ public class PseudoQueue {
         }
 
         return front.pop();
-    }
-
-    public static void main(String[] args) {
-        PseudoQueue q = new PseudoQueue();
-        q.enqueue(1);
-        q.enqueue(2);
-        q.enqueue(3);
-        q.enqueue(4);
-
-        System.out.println(q.dequeue());
-        System.out.println(q.dequeue());
-        System.out.println(q.dequeue());
-        System.out.println(q.dequeue());
-
     }
 }
