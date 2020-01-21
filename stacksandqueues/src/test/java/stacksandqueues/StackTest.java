@@ -8,10 +8,11 @@ public class StackTest {
     Stack testStack;
     @Before
     public void setUp() {
-        testStack = new Stack();
+        testStack = new Stack<Integer>();
     }
 
     @Test public void stack_canInstantiate() {
+        Stack<Integer> testStack = new Stack();
         testStack.top = new Node(5);
         assertTrue(testStack.top.value == 5);
     }
