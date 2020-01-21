@@ -157,3 +157,22 @@ Queue:
   -`peek()` Returns the value of the front Node in the queue. Throws a Null Pointer Exception if the queue is empty.
 
   -`isEmpty()` Returns true if the queue is empty, else false.
+
+
+# PseudoQueue
+
+## Challenge
+  Implement a Queue with enqueue() and dequeue() methods using two Stacks, with only Stack methods.
+
+## Approach and Efficiency
+  My approach was to set the 'front' and 'rear' properties of the PseudoQueue to be separate Stacks. When enqueuing I can simply push to the rear stack, but in order to push to the end of the front stack I need to reverse it first, then un-reverse it after. I had the opposite approach to dequeuing: the front Stack can simply be popped, but the rear Stack needs to be reversed in order to pop() the last Node, then un-reversed to re-set the order.
+
+## API
+  -`enqueue(int value)` Adds a new Node with the given value to the top of the front Stack and the rear of the Rear stack.
+
+  -`dequeue(int value)` Removes the top Node from the front stack and the rear Node from the rear stack.
+
+## Solution
+  [code](./stacksandqueues/src/main/java/stacksandqueues/PseudoQueue.java)
+  
+  ![image](./assets/queue-with-stacks.jpg)
