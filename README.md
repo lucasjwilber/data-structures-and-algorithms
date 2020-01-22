@@ -187,6 +187,8 @@ Queue:
 ## Approach and Efficiency
   My approach was to basically implement two separate queues in the class; one for Dogs, one for Cats. Based on the String argument given to enqueue() and dequeue() it adds or removes a Dog or a Cat, or null if neither is specified.
 
+  Both enqueue() and dequeue() have O(1) time efficiency and O(1) space efficiency because they use standard queue methods and there are separate queues for Cats and Dogs.
+
 ## API
   -`enqueue(String animal)` If animal is "cat", creates a new Cat object. If animal is "dog", creates a new Dog object. Gives the new Cat or Dog a random name property then inserts the new object into either the cat or dog queue based on type.
 
@@ -194,5 +196,5 @@ Queue:
 
 ## Solution
   [code](./utilities/src/main/java/utilities/AnimalShelter.java)
-  
+
   ![image](./assets/fifo-animal-shelter.jpg)
