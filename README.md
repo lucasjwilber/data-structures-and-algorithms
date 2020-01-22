@@ -190,7 +190,7 @@ Queue:
   Both enqueue() and dequeue() have O(1) time efficiency and O(1) space efficiency because they use standard queue methods and there are separate queues for Cats and Dogs.
 
 ## API
-  -`enqueue(String animal)` If animal is "cat", creates a new Cat object. If animal is "dog", creates a new Dog object. Gives the new Cat or Dog a random name property then inserts the new object into either the cat or dog queue based on type.
+  -`enqueue(T animal)` If animal is a Cat, updates the Cat queue (frontCat, rearCat). If animal is a Dog, updates the Dog queue (frontDog, rearDog).
 
   -`dequeue(String preference)` If preference is "dog", removes the oldest Dog object from the dog queue and returns its name. If preference is "cat", removes the oldest Cat object from the queue and returns its name. If preference is neither "dog" nor "cat", returns null.
 
