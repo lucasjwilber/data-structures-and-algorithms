@@ -176,3 +176,23 @@ Queue:
   [code](./stacksandqueues/src/main/java/stacksandqueues/PseudoQueue.java)
   
   ![image](./assets/queue-with-stacks.jpg)
+
+
+
+# Animal Shelter
+
+## Challenge
+  Implement a class named AnimalShelter holds Cats and Dogs in a FIFO fashion. The enqueue and dequeue methods can return either a Cat or Dog based on the argument.
+
+## Approach and Efficiency
+  My approach was to basically implement two separate queues in the class; one for Dogs, one for Cats. Based on the String argument given to enqueue() and dequeue() it adds or removes a Dog or a Cat, or null if neither is specified.
+
+## API
+  -`enqueue(String animal)` If animal is "cat", creates a new Cat object. If animal is "dog", creates a new Dog object. Gives the new Cat or Dog a random name property then inserts the new object into either the cat or dog queue based on type.
+
+  -`dequeue(String preference)` If preference is "dog", removes the oldest Dog object from the dog queue and returns its name. If preference is "cat", removes the oldest Cat object from the queue and returns its name. If preference is neither "dog" nor "cat", returns null.
+
+## Solution
+  [code](./utilities/src/main/java/utilities/AnimalShelter.java)
+  
+  ![image](./assets/fifo-animal-shelter.jpg)
