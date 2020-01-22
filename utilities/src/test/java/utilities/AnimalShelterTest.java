@@ -9,12 +9,18 @@ public class AnimalShelterTest {
     AnimalShelter as;
     @Before public void setUp() {
         as = new AnimalShelter();
-        as.enqueue("cat");
-        as.enqueue("dog");
-        as.enqueue("cat");
-        as.enqueue("cat");
-        as.enqueue("dog");
-        as.enqueue("dog");
+        Cat cat1 = new Cat();
+        Dog dog1 = new Dog();
+        Cat cat2 = new Cat();
+        Cat cat3 = new Cat();
+        Dog dog2 = new Dog();
+        Dog dog3 = new Dog();
+        as.enqueue(cat1);
+        as.enqueue(dog1);
+        as.enqueue(cat2);
+        as.enqueue(cat3);
+        as.enqueue(dog2);
+        as.enqueue(dog3);
     }
 
     @Test public void AS_testConstructor() {
@@ -27,18 +33,24 @@ public class AnimalShelterTest {
 
     @Test public void AS_canEnqueueCats() {
         AnimalShelter as = new AnimalShelter();
-        as.enqueue("cat");
-        as.enqueue("cat");
-        as.enqueue("cat");
+        Cat cat1 = new Cat();
+        Cat cat2 = new Cat();
+        Cat cat3 = new Cat();
+        as.enqueue(cat1);
+        as.enqueue(cat2);
+        as.enqueue(cat3);
 
         assertNotNull(as.frontCat.next.next);
         assertNull(as.frontCat.next.next.next);
     }
     @Test public void AS_canEnqueueDogs() {
         AnimalShelter as = new AnimalShelter();
-        as.enqueue("dog");
-        as.enqueue("dog");
-        as.enqueue("dog");
+        Dog dog1 = new Dog();
+        Dog dog2 = new Dog();
+        Dog dog3 = new Dog();
+        as.enqueue(dog1);
+        as.enqueue(dog2);
+        as.enqueue(dog3);
 
         assertNotNull(as.frontDog.next.next);
         assertNull(as.frontDog.next.next.next);
@@ -57,14 +69,25 @@ public class AnimalShelterTest {
         assertNull(as.dequeue("alligator"));
     }
     @Test public void AS_dequeueIsFIFO() {
-        AnimalShelter as = new AnimalShelter();
-        as.enqueue("cat");
-        String firstCatName = as.frontCat.name;
-        as.enqueue("dog");
-        String firstDogName = as.frontDog.name;
-        as.enqueue("cat");
-        as.enqueue("cat");
-        as.enqueue("dog");
-        as.enqueue("cat");
+        as = new AnimalShelter();
+        Cat cat1 = new Cat();
+        Dog dog1 = new Dog();
+        Cat cat2 = new Cat();
+        Cat cat3 = new Cat();
+        Dog dog2 = new Dog();
+        Dog dog3 = new Dog();
+        as.enqueue(cat1);
+        as.enqueue(dog1);
+        as.enqueue(cat2);
+        as.enqueue(cat3);
+        as.enqueue(dog2);
+        as.enqueue(dog3);
+
+        assertEquals(cat1, as.dequeue("cat"));
+        assertEquals(dog1, as.dequeue("dog"));
+        assertEquals(cat2, as.dequeue("cat"));
+        assertEquals(dog2, as.dequeue("dog"));
+        assertEquals(cat3, as.dequeue("cat"));
+        assertEquals(dog3, as.dequeue("dog"));
     }
 }
