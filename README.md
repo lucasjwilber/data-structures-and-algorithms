@@ -198,3 +198,21 @@ Queue:
   [code](./utilities/src/main/java/utilities/AnimalShelter.java)
 
   ![image](./assets/fifo-animal-shelter.jpg)
+
+
+
+# Multi Bracket Validation
+
+## Challenge
+  Implement a method `multiBracketValidation(String input)` which accepts a string of brackets and returns true or false based on whether or not the string is balanced--whether it has a syntactically correct order of opening and closing brackets.
+
+## Approach and Efficiency
+  There are two things I needed to keep track of with my implementation: whether or not each bracket type has an equal number of openers and closers, and whether each closing bracket was preceded by the correct opening bracket. For the first problem I use a counter variable for each bracket type and as I iterate over the string I increment/decrement the variable whenever the corresponding bracket is found. If any counter ever becomes negative, I can return false immediately. For the second problem I use a Stack to keep track of every opening bracket, and whenever a closing bracket is found, I compare it to the top of the stack. If they aren't equal, I return false immediately, otherwise I pop off the top of the stack and continue iteration. Finally, after iterating through the entire string I return true if all my counter variables are 0, else false.
+
+## API
+  -`multiBracketValidation(String input)` Returns true if the input string has a balanced number and ordering of brackets, else returns false.
+
+## Solution
+  [code](./utilities/src/main/java/utilities/MultiBracketValidation.java)
+
+  ![image](./assets/multi-bracket-validation.jpg)
