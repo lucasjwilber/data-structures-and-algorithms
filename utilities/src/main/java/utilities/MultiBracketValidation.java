@@ -5,9 +5,8 @@ import java.util.Stack;
 public class MultiBracketValidation {
     public static boolean multiBracketValidation(String input) {
         Stack<Character> stack = new Stack<>();
-        char[] brackets = input.toCharArray();
-
-        for (char ch: brackets) {
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
             switch (ch) {
                 case '}':
                     if (stack.isEmpty() || stack.pop() != '{') return false;
