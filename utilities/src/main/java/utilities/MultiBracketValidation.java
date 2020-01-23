@@ -13,51 +13,40 @@ public class MultiBracketValidation {
         for (char ch: brackets) {
             switch (ch) {
                 case '}':
+                    if (curly == 0) return false;
                     curly--;
                     if (stack.peek() == '{') {
                         stack.pop();
-                    } else {
-                        return false;
-                    }
+                    } else { return false; }
                     break;
                 case '{':
                     stack.push(ch);
                     curly++;
                     break;
                 case ')':
+                    if (paren == 0) return false;
                     paren--;
-                    if (stack.peek() != '(') {
-                        return false;
-                    } else if (stack.peek() == '(') {
+                    if (stack.peek() == '(') {
                         stack.pop();
-                    }
+                    } else { return false; }
                     break;
                 case '(':
                     stack.push(ch);
                     paren++;
                     break;
                 case ']':
+                    if (square == 0) return false;
                     square--;
-                    if (stack.peek() != '[') {
-                        return false;
-                    } else if (stack.peek() == '[') {
+                    if (stack.peek() == '[') {
                         stack.pop();
-                    }
+                    } else { return false; }
                     break;
                 case '[':
                     stack.push(ch);
                     square++;
                     break;
-                default:
-                    continue;
             }
         }
-        return (paren == 0 && curly == 0 && square == 0);
-    }
-    public static void main(String[] args) {
-        System.out.println(multiBracketValidation("{}{()"));
-        System.out.println(multiBracketValidation("{}{()}"));
-        System.out.println(multiBracketValidation("{}(})}"));
-        System.out.println(multiBracketValidation("()"));
+        return true;
     }
 }
