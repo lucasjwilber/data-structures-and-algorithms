@@ -52,7 +52,7 @@ public class BinaryTree {
     }
 
     public static void main(String[] args ) {
-        BinarySearchTree bst = new BinarySearchTree();
+        BinaryTree bst = new BinaryTree();
         bst.root = new Node(4);
         bst.root.left = new Node(3);
         bst.root.right = new Node(5);
