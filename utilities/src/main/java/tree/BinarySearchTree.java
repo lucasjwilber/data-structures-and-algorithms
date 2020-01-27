@@ -30,16 +30,4 @@ public class BinarySearchTree {
         }
         return false;
     }
-
-    public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree();
-        bst.add(10);
-        bst.add(5);
-        bst.add(20);
-        bst.add(15);
-        bst.add(13);
-        System.out.println(bst.root.right.value);
-        System.out.println(bst.root.right.left.left.value);
-        System.out.println(bst.contains(bst.root, 21));
-    }
 }

@@ -6,12 +6,12 @@ import java.util.Arrays;
 public class BinaryTree {
     Node root;
 
-    public Object[] preOrder(Node root) {
+    public static Object[] preOrder(BinarySearchTree tree) {
         ArrayList<Integer> results = new ArrayList<>();
-        fillListPreOrder(root, results);
+        fillListPreOrder(tree.root, results);
         return results.toArray();
     }
-    public void fillListPreOrder(Node root, ArrayList<Integer> list) {
+    public static void fillListPreOrder(Node root, ArrayList<Integer> list) {
         list.add(root.value);
         if (root.left != null) {
             fillListPreOrder(root.left, list);
@@ -21,12 +21,12 @@ public class BinaryTree {
         }
     }
 
-    public Object[] inOrder(Node root) {
+    public static Object[] inOrder(BinarySearchTree tree) {
         ArrayList<Integer> results = new ArrayList<>();
-        fillListInOrder(root, results);
+        fillListInOrder(tree.root, results);
         return results.toArray();
     }
-    public void fillListInOrder(Node root, ArrayList<Integer> list) {
+    public static void fillListInOrder(Node root, ArrayList<Integer> list) {
         if (root.left != null) {
             fillListInOrder(root.left, list);
         }
@@ -36,12 +36,12 @@ public class BinaryTree {
         }
     }
 
-    public Object[] postOrder(Node root) {
+    public static Object[] postOrder(BinarySearchTree tree) {
         ArrayList<Integer> results = new ArrayList<>();
-        fillListPostOrder(root, results);
+        fillListPostOrder(tree.root, results);
         return results.toArray();
     }
-    public void fillListPostOrder(Node root, ArrayList<Integer> list) {
+    public static void fillListPostOrder(Node root, ArrayList<Integer> list) {
         if (root.left != null) {
             fillListPostOrder(root.left, list);
         }
@@ -49,22 +49,5 @@ public class BinaryTree {
             fillListPostOrder(root.right, list);
         }
         list.add(root.value);
-    }
-
-    public static void main(String[] args ) {
-        BinaryTree bst = new BinaryTree();
-        bst.root = new Node(4);
-        bst.root.left = new Node(3);
-        bst.root.right = new Node(5);
-        bst.root.left.left = new Node(2);
-        bst.root.left.right = new Node(1);
-        bst.root.right.right = new Node(34);
-        //bst:
-        //      4
-        //    3   5
-        //  2  1   34
-        System.out.println(Arrays.toString(bst.preOrder(bst.root)));
-        System.out.println(Arrays.toString(bst.inOrder(bst.root)));
-        System.out.println(Arrays.toString(bst.postOrder(bst.root)));
     }
 }
