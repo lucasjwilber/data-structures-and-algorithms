@@ -70,4 +70,18 @@ public class BinaryTreeAndBinarySearchTreeTest {
         assertEquals(tree.root.left.value, postOrder(tree)[0]);
         assertEquals(tree.root.right.value, postOrder(tree)[1]);
     }
+    @Test public void binarySearchTree_contains() {
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.add(54);
+        tree.add(2);
+        tree.add(2353);
+        tree.add(44);
+        tree.add(56);
+        tree.add(45);
+        tree.add(46);
+
+        assertTrue(tree.contains(46));
+        assertTrue(tree.contains(2));
+        assertFalse(tree.contains(99));
+    }
 }
