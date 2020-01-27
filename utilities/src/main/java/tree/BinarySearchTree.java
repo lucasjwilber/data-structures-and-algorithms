@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.ArrayList;
+
 public class BinarySearchTree {
     Node root;
 
@@ -16,6 +18,19 @@ public class BinarySearchTree {
         if (node.value > value) node.left = new Node(value);
     }
 
+    public boolean contains(Node root, int value) {
+        if (root.value == value) return true;
+        if (root.left != null) {
+            if (root.left.value == value) return true;
+            contains(root.left, value);
+        }
+        if (root.right != null) {
+            if (root.right.value == value) return true;
+            contains(root.right, value);
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
         bst.add(10);
@@ -25,5 +40,6 @@ public class BinarySearchTree {
         bst.add(13);
         System.out.println(bst.root.right.value);
         System.out.println(bst.root.right.left.left.value);
+        System.out.println(bst.contains(bst.root, 21));
     }
 }
