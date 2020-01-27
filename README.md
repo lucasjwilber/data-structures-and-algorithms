@@ -217,3 +217,32 @@ Queue:
   [code](./utilities/src/main/java/utilities/MultiBracketValidation.java)
 
   ![image](./assets/multi-bracket-validation.jpg)
+
+
+
+# Trees
+Binary Search Tree
+
+## Challenge
+Create a class BinaryTree with methods which return an array of all Nodes in the tree in pre-order, in-order, and post-order. Create a BinarySearchTree class with a method to add Nodes in the correct order and a method to find if the tree contains a given value.
+
+## Approach & Efficiency
+For the BinaryTree methods I used an ArrayList to easily collect all Nodes in the tree in a specific order. I varied the order of statements in the recursively-called List building methods to fill the list, then convert it into an Array with the .toArray() method before returning it.
+
+To add Nodes to the BinarySearchTree I recursively traverse through the tree comparing Node values with the given value until a Node is found which doesn't have a left or right Node and is less than/greater than the given value, respectively. Then that Node's left/right property is updated to be a new Node with the given value.
+
+To check if a BinarySearchTree contains a given value I simply use the built in Array.contains() method to check if the arrary returned by my preOrder method contains the given value.
+
+## API
+
+  ### BinaryTree
+    -`preOrder(BinarySearchTree tree)` Returns an array of the tree's values in a pre-order format.
+
+    -`inOrder(BinarySearchTree tree)` Returns an array of the tree's values in an in-order format.
+
+    -`postOrder(BinarySearchTree tree)` Returns an array of the tree's values in a post-order format.
+
+  ### BinarySearchTree
+    -`add(int value)` Inserts a Node with the given value in a position that maintains a left-to-right order throughout the BinarySearchTree
+
+    -`contains(int value)` Returns true or false if the given value is in the BinarySearchTree
