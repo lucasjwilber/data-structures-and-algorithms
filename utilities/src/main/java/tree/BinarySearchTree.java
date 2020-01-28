@@ -27,6 +27,18 @@ public class BinarySearchTree extends BinaryTree {
     }
 
     public boolean contains(int value) {
-        return Arrays.asList(preOrder(this)).contains(value);
+//        return Arrays.asList(preOrder(this)).contains(value);
+        return containsHelper(this.root, value);
+    }
+    public boolean containsHelper(Node node, int value) {
+        if (node == null) {
+            return false;
+        } else if (node.value == value) {
+            return true;
+        } else if (value > node.value) {
+            return containsHelper(node.right, value);
+        } else {
+            return containsHelper(node.left, value);
+        }
     }
 }
