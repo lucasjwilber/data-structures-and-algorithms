@@ -3,7 +3,7 @@ package tree;
 import java.util.Arrays;
 
 public class BinarySearchTree extends BinaryTree {
-    Node root;
+    public Node root;
 
     public void add(int value) {
         if (root == null) root = new Node(value);
