@@ -34,23 +34,12 @@ public class FizzbuzzTree {
         }
     }
 
-
     public static FizzbuzzTree FizzBuzzTree(BinarySearchTree tree) {
         FizzbuzzTree newTree = new FizzbuzzTree();
+        if (tree.root != null) {
+            newTree.root = new FizzBuzzNode(fizzBuzzify(tree.root.value));
+        }
         fizzBuzzCopier(tree.root, newTree.root);
         return newTree;
-    }
-
-    public static void main(String[] args) {
-        BinarySearchTree newTree = new BinarySearchTree();
-        newTree.add(4);
-        newTree.add(2);
-        newTree.add(3);
-        newTree.add(1);
-        newTree.add(6);
-        newTree.add(7);
-        newTree.add(5);
-        FizzbuzzTree fbTree = FizzBuzzTree(newTree);
-
     }
 }
