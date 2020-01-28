@@ -246,3 +246,22 @@ To check if a BinarySearchTree contains a given value I simply use the built in 
     -`add(int value)` Inserts a Node with the given value in a position that maintains a left-to-right order throughout the BinarySearchTree
 
     -`contains(int value)` Returns true or false if the given value is in the BinarySearchTree
+
+
+# Fizz Buzz Tree
+Fizz-Buzz a Tree
+
+## Challenge
+Create a method FizzBuzzTree which accepts a Binary Search Tree as an argument and returns a new tree with the same structure, where all values have been replaced according to the rules of Fizz Buzz.
+
+## Approach & Efficiency
+My approach was to first create two helper methods, one with accepts a number and returns a String of "Fizz", "Buzz", "FizzBuzz", or "number" based on the value, and the other which recursively iterates through the given tree in a post-order fashion and creates new Nodes with fizz-buzz-ified values. In the FizzBuzzTree method I first create a new empty Fizzbuzz tree, then if the given tree's root is not null I create a root for the Fizzbuzz tree, and pass both roots into the recursive tree-copying method. Whenever a new Node is created for the FizzbuzzTree, its value gets what is returned when the corresponding old tree's Node value is passed through the fizzbuzzifier method.
+
+## API
+
+  -`FizzBuzzTree(BinarySearchTree tree)` Returns a new tree with the same structure as the input tree, but with all values stringified and replaced with "Fizz", "Buzz", or "FizzBuzz" if they are divisible by 3, 5, or 15 respectively.
+
+## Solution
+  [code](./utilities/src/main/java/utilities/FizzbuzzTree.java)
+
+  ![image](./assets/fizzbuzz-tree.jpg)

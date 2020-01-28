@@ -1,6 +1,7 @@
 package tree;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BinaryTree {
     Node root;
@@ -10,13 +11,13 @@ public class BinaryTree {
         fillListPreOrder(tree.root, results);
         return results.toArray();
     }
-    public static void fillListPreOrder(Node root, ArrayList<Integer> list) {
-        list.add(root.value);
-        if (root.left != null) {
-            fillListPreOrder(root.left, list);
+    public static void fillListPreOrder(Node node, ArrayList<Integer> list) {
+        list.add(node.value);
+        if (node.left != null) {
+            fillListPreOrder(node.left, list);
         }
-        if (root.right != null) {
-            fillListPreOrder(root.right, list);
+        if (node.right != null) {
+            fillListPreOrder(node.right, list);
         }
     }
 
