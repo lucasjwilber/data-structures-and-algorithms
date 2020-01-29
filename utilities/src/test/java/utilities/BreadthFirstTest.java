@@ -23,4 +23,14 @@ public class BreadthFirstTest {
     @Test public void breadthFirstReturnsValuesInBreathFirstOrder() {
         assertEquals(breadthFirst(tree).toString(), "[4, 2, 6, 3, 5]");
     }
+    @Test public void breadthFirstReturnsEmptyListWhenTreeIsEmpty() {
+        BinarySearchTree tree = new BinarySearchTree();
+        assertEquals(breadthFirst(tree).toString(), "[]");
+    }
+    @Test public void breadthFirstWorksOnUnbalancedTrees() {
+        tree.add(45);
+        tree.add(46);
+        tree.add(47);
+        assertEquals(breadthFirst(tree).toString(), "[4, 2, 6, 3, 5, 45, 46, 47]");
+    }
 }
