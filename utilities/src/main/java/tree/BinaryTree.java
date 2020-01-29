@@ -59,7 +59,6 @@ public class BinaryTree {
             LinkedList<Node> queue = new LinkedList<Node>();
             queue.add(tree.root);
             while (!queue.isEmpty()) {
-                System.out.println(queue.peek().value);
                 Node current = queue.removeFirst();
                 if (current.left != null) queue.addLast(current.left);
                 if (current.right != null) queue.addLast(current.right);

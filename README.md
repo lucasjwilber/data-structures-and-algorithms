@@ -265,3 +265,22 @@ My approach was to first create two helper methods, one with accepts a number an
   [code](./utilities/src/main/java/utilities/FizzbuzzTree.java)
 
   ![image](./assets/fizzbuzz-tree.jpg)
+
+
+
+# Breadth First Traversal
+
+## Challenge
+Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+
+## Approach & Efficiency
+My approach for this method is to use Queue. First I add the tree's root Node to the front of the queue, then in a loop that runs until the queue is empty, I remove the Node at the front of the queue, add its left and right Nodes if it has either, and add its value to a List. This method only handles one Node at a time while traversing the entire tree by necessity, which makes it O(1) for space and O(n) for time.
+
+## API
+
+  -`breadthFirst(BinarySearchTree tree)` Returns a List of Integers of each Node in the tree, in a breadth-first order.
+
+## Solution
+  [code](./utilities/src/main/java/utilities/BinaryTree.java)
+
+  ![image](./assets/breadth-first.jpg)
