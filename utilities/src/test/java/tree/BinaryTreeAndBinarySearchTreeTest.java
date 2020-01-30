@@ -84,4 +84,11 @@ public class BinaryTreeAndBinarySearchTreeTest {
         assertTrue(tree.contains(2));
         assertFalse(tree.contains(99));
     }
+    @Test public void findMaximumValueReturnsMaxValue() {
+        assertEquals(40, findMaximumValue(bst));
+    }
+    @Test public void findMaximumValueReturnsZeroWithEmptyTree() {
+        BinarySearchTree emptyTree = new BinarySearchTree();
+        assertEquals(0, findMaximumValue(emptyTree));
+    }
 }

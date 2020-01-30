@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.parseInt;
+
 public class BinaryTree {
     Node root;
 
@@ -67,4 +70,22 @@ public class BinaryTree {
         }
         return list;
     }
+
+    public static int findMaximumValue(BinarySearchTree tree) {
+        if (tree.root == null) {
+            return 0;
+        } else {
+            int maxValue = tree.root.value;
+            LinkedList<Node> queue = new LinkedList<Node>();
+            queue.add(tree.root);
+            while (!queue.isEmpty()) {
+                Node current = queue.removeFirst();
+                if (current.left != null) queue.addLast(current.left);
+                if (current.right != null) queue.addLast(current.right);
+                maxValue = current.value > maxValue ? current.value : maxValue;
+            }
+            return maxValue;
+        }
+    }
+
 }
