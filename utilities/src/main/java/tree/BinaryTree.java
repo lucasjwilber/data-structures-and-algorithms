@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import static java.lang.Integer.max;
 import static java.lang.Integer.parseInt;
 
 public class BinaryTree {
@@ -74,14 +75,16 @@ public class BinaryTree {
         if (tree.root == null) {
             return 0;
         } else {
-            int max = 0;
-            Object[] allValues = postOrder(tree);
-            for (int i = 0; i < allValues.length; i++) {
-                int value = parseInt(allValues[i].toString());
-                //can't use Math.max here because it's built-in method. against the rules :/
-                max = value > max ? value : max;
+            int maxValue = tree.root.value;
+            LinkedList<Node> queue = new LinkedList<Node>();
+            queue.add(tree.root);
+            while (!queue.isEmpty()) {
+                Node current = queue.removeFirst();
+                if (current.left != null) queue.addLast(current.left);
+                if (current.right != null) queue.addLast(current.right);
+                maxValue = current.value > maxValue ? current.value : maxValue;
             }
-            return max;
+            return maxValue;
         }
     }
 
