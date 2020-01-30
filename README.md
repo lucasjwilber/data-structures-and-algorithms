@@ -271,6 +271,25 @@ My approach was to first create two helper methods, one with accepts a number an
 # Breadth First Traversal
 
 ## Challenge
+Write a method that accepts a binary tree and returns the maximum value in the tree.
+
+## Approach & Efficiency
+Every Node's value needs to be checked so the best solution is O(n) for time. My solution is very similar to my breadth-first traversal method, but instead of adding each value to a List I compare it to a stored 'maxValue' integer and update it if necessary.
+
+## API
+
+  -`findMaximumValue(BinarySearchTree tree)` Returns an int of the maximum Node value in the tree.
+
+## Solution
+  [code](./utilities/src/main/java/utilities/BinaryTree.java)
+
+  ![image](./assets/breadth-first.jpg)
+
+
+
+# Find Max Value
+
+## Challenge
 Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
 
 ## Approach & Efficiency
@@ -283,4 +302,4 @@ My approach for this method is to use Queue. First I add the tree's root Node to
 ## Solution
   [code](./utilities/src/main/java/utilities/BinaryTree.java)
 
-  ![image](./assets/breadth-first.jpg)
+  ![image](./assets/find-maximum-binary-tree.jpg)
