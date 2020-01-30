@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import static java.lang.Integer.parseInt;
+
 public class BinaryTree {
     Node root;
 
@@ -67,4 +69,20 @@ public class BinaryTree {
         }
         return list;
     }
+
+    public static int findMaximumValue(BinarySearchTree tree) {
+        if (tree.root == null) {
+            return 0;
+        } else {
+            int max = 0;
+            Object[] allValues = postOrder(tree);
+            for (int i = 0; i < allValues.length; i++) {
+                int value = parseInt(allValues[i].toString());
+                //can't use Math.max here because it's built-in method. against the rules :/
+                max = value > max ? value : max;
+            }
+            return max;
+        }
+    }
+
 }
