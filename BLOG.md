@@ -24,7 +24,7 @@ This sorting method works by iterating through the array from left to right and 
 ![Whiteboard](./assets/insertionSortDrawing.png)
 
 ## Approach and Efficiency
-This approach loops through the entire array once, with the potential to loop through the entire array again at each iteration, making it O(n squared) for time complexity. No additional data structure is created during the sort, making it O(1) for space complexity.
+This approach loops through the entire array once, with the potential to loop through the array again at each iteration n-i times, making it O(n squared/2) for time complexity, or O(n squared). No additional data structure is created during the sort, making it O(1) for space complexity.
 
 ## Code
 ![Code](./utilities/src/main/java/utilities/Sort.java)
