@@ -8,7 +8,6 @@ This sorting method works by iterating through the array from left to right and 
 4. Inside the loop, whenever j is greater than i, i is not in the correct position. To find it's proper position, loop towards index 0, moving each value to the right, until a value is found that is less than j. Then insert the temp value at j + 1.
 
 ## Pseudo Code
-InsertionSort(int[] arr)
   
     FOR i = 1 to arr.length
     
