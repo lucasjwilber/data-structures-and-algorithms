@@ -27,9 +27,4 @@ public class Sort {
         }
         return arr;
     }
-
-    public static void main(String[] args) {
-        int[] testarr = new int[]{1, 5, 32, 8, 4, 6};
-        System.out.println(Arrays.toString(insertionSort(testarr)));
-    }
 }
