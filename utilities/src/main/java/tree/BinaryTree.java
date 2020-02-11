@@ -82,7 +82,7 @@ public class BinaryTree {
                 Node current = queue.removeFirst();
                 if (current.left != null) queue.addLast(current.left);
                 if (current.right != null) queue.addLast(current.right);
-                maxValue = current.value > maxValue ? current.value : maxValue;
+                maxValue = Math.max(current.value, maxValue);
             }
             return maxValue;
         }
