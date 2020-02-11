@@ -24,4 +24,9 @@ public class SortTests {
         int[] expected = new int[]{-8, -2, 1, 2, 35};
         assertArrayEquals(expected, insertionSort(testArray));
     }
+
+    @Test public void insertionSort_doesNothingWithEmptyArray() {
+        int[] testArray = new int[0];
+        assertArrayEquals(testArray, insertionSort(testArray));
+    }
 }
