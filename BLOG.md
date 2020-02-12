@@ -31,6 +31,8 @@ This approach loops through the entire array once, with the potential to loop th
 
 
 
+
+
 # Merge Sort
 This sorting method works by using a helper method to recursively split the array into left and right halves until each array has a single index, then sort and combine them until the array is back to its original size.
 
@@ -38,10 +40,11 @@ This sorting method works by using a helper method to recursively split the arra
 Define the recursive helper method, which
   1. Splits the input array into left and right halves
   2. Recursively splits each half using itself
-  3. Uses the merge method to combine the two array halves
+  3. Uses the merge method to combine the two sorted array halves once they've been split to be one index long
+
 Define the merge method, which
-  1. Iterates through either half of the array
-  2. Compares the values of each array and inserts them into the original array in sorted order
+  1. Iterates through either sorted array
+  2. Compares the values of each and inserts them into a new array in sorted order
   3. If either left or right is longer than the other, adds the rest of its values to the original.
 
 ## Pseudo Code
@@ -81,10 +84,11 @@ ALGORITHM Merge(left, right, arr)
        set remaining entries in arr to remaining values in left
 
 ## Whiteboard step-through example
-![Whiteboard](./assets/mergeSortDrawing.png)
+<!-- Thanks to https://www.geeksforgeeks.org/merge-sort/ for the great visual. -->
+![Whiteboard](./assets/mergesortdrawing.png)
 
 ## Approach and Efficiency
-This approach works by recursively splitting the input array in half, sorting each half, then combining the results. Eve
+This approach splits the input array in half log(n) times, creating n arrays. It then iterates over each array, combining them. The resulting time complexity is Olg(n) * (n-1), which is essentially O(n). This requires a new array to be created at every step, giving it the same space complexity, Olg(n) * (n-1), or O(n).
 
 ## Code
 ![Code](./utilities/src/main/java/utilities/Sort.java)
