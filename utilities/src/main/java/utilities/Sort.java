@@ -29,41 +29,41 @@ public class Sort {
         return arr;
     }
 
-    public static void mergeSort(int[] arr) {
+    public static int[] mergeSort(int[] arr) {
         int n = arr.length;
         if (n > 1) {
             int mid = n / 2;
             int[] left = new int[mid];
             int[] right;
+            //if arr's length is odd, make the right array hold the extra value
             if (arr.length % 2 != 0) {
                 right = new int[mid + 1];
             } else {
                 right = new int[mid];
             }
+            //put the first half of arr into left
             for (int i = 0; i < mid; i++) {
                 left[i] = arr[i];
             }
-            if (arr.length % 2 != 0) {
-                for (int i = 0; i < mid + 1; i++) {
-                    right[i] = arr[mid + i];
-                }
-            } else {
-                for (int i = 0; i < mid; i++) {
-                    right[i] = arr[mid + i];
-                }
+            //put the second half of arr into right
+            for (int i = 0; i < mid; i++) {
+                right[i] = arr[mid + i];
             }
-            System.out.println("left " + Arrays.toString(left));
-            System.out.println("right " + Arrays.toString(right));
+            //if arr was odd, add the last value of arr to the end of right
+            if (arr.length % 2 != 0) right[mid] = arr[mid * 2];
+
             mergeSort(left);
             mergeSort(right);
             merge(left, right, arr);
         }
+        return arr;
     }
 
     public static void merge(int[] left, int[] right, int[] arr) {
         int i = 0, //left
             j = 0, //right
             k = 0; //arr
+        //sort and insert values until either array is out of values
         while (i < left.length && j < right.length) {
             if (left[i] <= right[j]) {
                 arr[k] = left[i];
@@ -74,27 +74,19 @@ public class Sort {
             }
             k++;
         }
-            if (i == left.length) {
-//        set remaining entries in arr to remaining values in right
-                while (j < right.length) {
-                    arr[k] = right[j];
-                    j++;
-                    k++;
-                }
-            } else {
-//        set remaining entries in arr to remaining values in left
-                while (i < left.length) {
-                    arr[k] = left[i];
-                    i++;
-                    k++;
-                }
+        //if either array still has uninserted values, add them
+        if (i == left.length) {
+            while (j < right.length) {
+                arr[k] = right[j];
+                j++;
+                k++;
             }
-
-    }
-
-    public static void main(String[] args) {
-        int[] testArr = new int[]{8, 4, 23, 42, 16, 15};
-        mergeSort(testArr);
-        System.out.println(Arrays.toString(testArr));
+        } else {
+            while (i < left.length) {
+                arr[k] = left[i];
+                i++;
+                k++;
+            }
+        }
     }
 }
