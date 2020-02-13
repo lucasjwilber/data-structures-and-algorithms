@@ -99,8 +99,10 @@ public class Sort {
     }
     public static void quickSort(int[] arr, int left, int right) {
         if (left < right) {
-            //divide the array in half at the pivot point
+            //get the pivot point from which to divide the array
             int position = partition(arr, left, right);
+
+            //recursively keep dividing the resulting arrays
             quickSort(arr, left, position - 1);
             quickSort(arr, position + 1, right);
         }
@@ -108,6 +110,7 @@ public class Sort {
     public static int partition(int[] arr, int left, int right) {
         int pivot = arr[right];
         int low = left - 1;
+        //sort each partition by swapping values if necessary
         for (int i = left; i < right; i++) {
             if (arr[i] <= pivot) {
                 low++;
