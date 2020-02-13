@@ -3,8 +3,7 @@ package utilities;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static utilities.Sort.insertionSort;
-import static utilities.Sort.mergeSort;
+import static utilities.Sort.*;
 
 public class SortTests {
     @Test
@@ -53,5 +52,29 @@ public class SortTests {
         int[] testArray = new int[]{-2, 2, 35, 1, -8};
         int[] expected = new int[]{-8, -2, 1, 2, 35};
         assertArrayEquals(expected, mergeSort(testArray));
+    }
+
+    @Test
+    public void quickSort_works() {
+        int[] testArray = new int[]{8, 4, 23, 42, 16, 15};
+        int[] expected = new int[]{4, 8, 15, 16, 23, 42};
+        assertArrayEquals(expected, quickSortWholeArray(testArray));
+    }
+
+    @Test public void quickSort_doesNothingToEmptyArray() {
+        int[] testArray = new int[0];
+        assertArrayEquals(testArray, quickSortWholeArray(testArray));
+    }
+
+    @Test
+    public void quickSort_doesntModifySortedArrays() {
+        int[] testArray = new int[]{1, 2, 3, 4, 5};
+        assertArrayEquals(testArray, quickSortWholeArray(testArray));
+    }
+
+    @Test public void quickSort_handlesNegatives() {
+        int[] testArray = new int[]{-2, 2, 35, 1, -8};
+        int[] expected = new int[]{-8, -2, 1, 2, 35};
+        assertArrayEquals(expected, quickSortWholeArray(testArray));
     }
 }

@@ -89,4 +89,47 @@ public class Sort {
             }
         }
     }
+
+
+    public static int[] quickSortWholeArray(int[] arr) {
+        if (arr.length > 0) {
+            quickSort(arr, 0, arr.length - 1);
+        }
+        return arr;
+    }
+    public static void quickSort(int[] arr, int left, int right) {
+        if (left < right) {
+            //get the pivot point from which to divide the array
+            int position = partition(arr, left, right);
+
+            //recursively keep dividing the resulting arrays
+            quickSort(arr, left, position - 1);
+            quickSort(arr, position + 1, right);
+        }
+    }
+    public static int partition(int[] arr, int left, int right) {
+        int pivot = arr[right];
+        int low = left - 1;
+        //sort each partition by swapping values if necessary
+        for (int i = left; i < right; i++) {
+            if (arr[i] <= pivot) {
+                low++;
+                swap(arr, i, low);
+            }
+        }
+        swap(arr, right, low + 1);
+        return low + 1;
+    }
+    public static void swap(int[] arr, int i, int low) {
+        int temp = arr[i];
+        arr[i] = arr[low];
+        arr[low] = temp;
+    }
+
+
+    public static void main(String[] args) {
+        int[] testArr = new int[]{4, 1, 6, 23, 4, 4 ,77, 2};
+        quickSortWholeArray(testArr);
+        System.out.println(Arrays.toString(testArr));
+    }
 }
