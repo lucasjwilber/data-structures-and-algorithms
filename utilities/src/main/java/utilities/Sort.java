@@ -91,13 +91,15 @@ public class Sort {
     }
 
 
-    public static void quickSortWholeArray(int[] arr) {
+    public static int[] quickSortWholeArray(int[] arr) {
         if (arr.length > 0) {
             quickSort(arr, 0, arr.length - 1);
         }
+        return arr;
     }
     public static void quickSort(int[] arr, int left, int right) {
         if (left < right) {
+            //divide the array in half at the pivot point
             int position = partition(arr, left, right);
             quickSort(arr, left, position - 1);
             quickSort(arr, position + 1, right);
