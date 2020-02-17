@@ -454,3 +454,33 @@ This approach has a time complexity between O(n * log n) and O(n * n) depending 
 
 ## Code
 ![Code](./utilities/src/main/java/utilities/Sort.java)
+
+
+
+
+# Hash Table
+
+## Challenge
+Implement a Hashtable with the following methods:
+- insert: takes in both the key and value. This method should hash the key, and add the key and value pair to the table, handling collisions as needed.
+- get: takes in the key and returns the value from the table.
+- contains: takes in the key and returns a boolean, indicating if the key exists in the table already.
+- hash: takes in an arbitrary key and returns an index in the collection.
+
+## Approach & Efficiency
+My Hash Table uses an array of Linked Lists in order to handle collisions. This allows of O(1) insertions and O(1) look-ups when there are no collisions, but in the worst case there is the potential for O(n) look-ups. Because it uses an array of n length, the space complexity is O(n).
+
+## API
+
+  - `insert(String key, String value)` Hashes the key with the `hash` method, and inserts it in the Linked List at the given index of the Hash Table's array of Linked Lists. If the Linked List at this index is null, initializes it first.
+
+  - `get(String key)` Returns the value of the given key in the Hash Table, or "Entry not found" if it isn't there.
+
+  - `contains(String key)` Returns true or false whether or not the given key is in the Hash Table. Internally, this uses the `get` method to determine this.
+
+  - `hash(String key)` Returns an int which is the product of each character in the key's char code, modulated by 599.
+
+## Solution
+  [code](./utilities/src/main/java/utilities/HashTable.java)
+
+
