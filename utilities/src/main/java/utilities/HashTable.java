@@ -50,7 +50,11 @@ public class HashTable {
                     return current.value;
             }
         }
-        return "Entry not found";
+        return "Entry not found.";
+    }
+
+    public boolean contains(String key) {
+        return (!this.get(key).equals("Entry not found."));
     }
 
 }
