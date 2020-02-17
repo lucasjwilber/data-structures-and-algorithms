@@ -1,6 +1,5 @@
 package utilities;
 
-import javax.sound.sampled.Line;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -42,28 +41,16 @@ public class HashTable {
     public String get(String key) {
         int index = hash(key);
         LinkedList<Entry> bucket = table[index];
-        String value = "Entry not found.";
 
-//        if (bucket.isEmpty()) {
-//            return value;
-//        } else {
+        if (bucket != null) {
             ListIterator<Entry> bucketList = bucket.listIterator(0);
             while (bucketList.hasNext()) {
                 Entry current = bucketList.next();
                 if (current.key.equals(key))
                     return current.value;
             }
-//        }
-        return value;
-    }
-
-    public static void main(String[] args) {
-        HashTable ht = new HashTable(1024);
-        ht.insert("Man", "Lucas");
-        ht.insert("Dog", "Duke");
-        ht.insert("God", "Ekud");
-        System.out.println(ht.get("God"));
-        System.out.println(ht.get("Dog"));
+        }
+        return "Entry not found";
     }
 
 }
