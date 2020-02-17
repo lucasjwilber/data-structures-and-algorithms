@@ -15,7 +15,7 @@ public class HashTable {
     public static int hash(String key) {
         int index = 1;
         for (int i = 0; i < key.length(); i++) {
-            index += key.charAt(i);
+            index *= key.charAt(i);
         }
         return index % 599;
     }
