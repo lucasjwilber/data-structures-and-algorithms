@@ -484,3 +484,22 @@ My Hash Table uses an array of Linked Lists in order to handle collisions. This 
   [code](./utilities/src/main/java/utilities/HashTable.java)
 
 
+
+  
+# Repeated Word
+
+## Challenge
+Write a function that accepts a String and returns the most repeated word in it.
+
+## Approach & Efficiency
+For this challenge I split the input string into an array of words and iterate over it, using a Hashtable to count the number of occurances of each word. Each word is lowercased and trailing punctuation is removed for these comparisons. Along the way, a variable is used to keep track of the word with the most occurances, and using that, another variable is used to store the most repeated word. This way I can avoid iterating through the Hashtable after it has been filled to find the most repeated word. This solution is O(n) for both time and space.
+
+## API
+
+  - `repeatedWord(String input)` Returns the word with the most occurances in the given input String.
+
+## Solution
+  [code](./utilities/src/main/java/utilities/RepeatedWord.java)
+
+
+
