@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 public class RepeatedWord {
     public static String repeatedWord(String input) {
+        if (input == null || input == "") return null;
         String[] words = input.split(" ");
         int highestCount = 0;
         String mostCommonWord = null;
