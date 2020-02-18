@@ -29,4 +29,11 @@ public class RepeatedWordTest {
         String testInput = null;
         assertNull(RepeatedWord.repeatedWord(testInput));
     }
+    @Test
+    public void repeatedWord_ignoresTailingPunctuation() {
+        String testInput = "It was, it was. Was!";
+        String expected = "was";
+        String actual = RepeatedWord.repeatedWord(testInput);
+        assertEquals(expected, actual);
+    }
 }
