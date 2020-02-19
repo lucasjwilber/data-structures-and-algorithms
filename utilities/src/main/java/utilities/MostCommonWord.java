@@ -1,12 +1,14 @@
 package utilities;
 
-import java.util.ArrayList;
+import java.util.Hashtable;
 
-public class RepeatedWord {
-    public static String repeatedWord(String input) {
+public class MostCommonWord {
+    public static String mostCommonWord(String input) {
         if (input == null || input.equals("")) return null;
         String[] words = input.split(" ");
-        ArrayList<String> seenWords = new ArrayList<>();
+        int highestCount = 0;
+        String mostCommonWord = null;
+        Hashtable<String, Integer> wordsTable = new Hashtable<>();
 
         for (String word : words) {
             //lowercaseify the word and remove any tailing punctuation for fair comparisons
@@ -16,14 +18,18 @@ public class RepeatedWord {
                     lcword.substring(lcword.length() - 1).equals("!")) {
                 lcword = lcword.substring(0, lcword.length() - 1);
             }
-            //return the word if it's a repeat
-            if (seenWords.contains(lcword)) {
-                return lcword;
-            } else {
-                seenWords.add(lcword);
+
+            int count = 1;
+            if (wordsTable.containsKey(lcword)) {
+                count = wordsTable.get(lcword) + 1;
+            }
+            wordsTable.put(lcword, count);
+
+            if (count > highestCount) {
+                highestCount = count;
+                mostCommonWord = lcword;
             }
         }
-        //if no repeats were seen
-        return null;
+        return mostCommonWord;
     }
 }
