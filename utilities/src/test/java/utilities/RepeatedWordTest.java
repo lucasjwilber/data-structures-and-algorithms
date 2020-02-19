@@ -14,6 +14,13 @@ public class RepeatedWordTest {
         assertEquals(expected, actual);
     }
     @Test
+    public void repeatedWord_testStringWithPunctuation() {
+        String testInput = "It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York...";
+        String expected = "summer";
+        String actual = RepeatedWord.repeatedWord(testInput);
+        assertEquals(expected, actual);
+    }
+    @Test
     public void repeatedWord_notCaseSensitive() {
         String testInput = "tHe fIrSt rEpEatEd WorD iN thIs SeNtEnCe iS REPEAted";
         String expected = "repeated";
