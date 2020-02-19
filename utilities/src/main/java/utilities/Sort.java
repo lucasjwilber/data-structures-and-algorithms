@@ -99,10 +99,10 @@ public class Sort {
     }
     public static void quickSort(int[] arr, int left, int right) {
         if (left < right) {
-            //get the pivot index and put it in its sorted position
+            //get the pivot index and put it in its sorted position in the array
             int position = partition(arr, left, right);
 
-            //on the sections of the array on each side of the pivot, repeat
+            //do that on the sections on each side of the previous pivot index
             quickSort(arr, left, position - 1);
             quickSort(arr, position + 1, right);
         }
