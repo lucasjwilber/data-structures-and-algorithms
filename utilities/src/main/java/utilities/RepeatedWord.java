@@ -5,6 +5,18 @@ import java.util.ArrayList;
 public class RepeatedWord {
     public static String repeatedWord(String input) {
         if (input == null || input.equals("")) return null;
+
+        for (int i = 0; i < input.length(); i++) {
+
+        }
+
+
+
+
+
+
+
+
         String[] words = input.split(" ");
         ArrayList<String> seenWords = new ArrayList<>();
 

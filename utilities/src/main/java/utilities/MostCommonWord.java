@@ -11,12 +11,20 @@ public class MostCommonWord {
         Hashtable<String, Integer> wordsTable = new Hashtable<>();
 
         for (String word : words) {
-            //lowercaseify the word and remove any tailing punctuation for fair comparisons
+            //lowercaseify the word and remove trailing punctuation for fair comparisons
             String lcword = word.toLowerCase();
             if (lcword.substring(lcword.length() - 1).equals(",") ||
                     lcword.substring(lcword.length() - 1).equals(".") ||
-                    lcword.substring(lcword.length() - 1).equals("!")) {
+                    lcword.substring(lcword.length() - 1).equals("'") ||
+                    lcword.substring(lcword.length() - 1).equals("\"") ||
+                    lcword.substring(lcword.length() - 1).equals("!"))
+            {
                 lcword = lcword.substring(0, lcword.length() - 1);
+            }
+            //remove leading punctuation
+            if (lcword.substring(1).equals("'") ||
+                    lcword.substring(1).equals(("\""))) {
+                lcword = lcword.substring(1);
             }
 
             int count = 1;

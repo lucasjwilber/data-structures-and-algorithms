@@ -503,7 +503,6 @@ For this challenge I split the input string into an array of words and iterate o
 
 
 
-
   
 # Repeated Word
 
@@ -519,6 +518,29 @@ For this challenge I use an ArrayList to hold each word as it is seen during ite
 
 ## Solution
   [code](./utilities/src/main/java/utilities/RepeatedWord.java)
+
+
+  
+
+# Left Join
+
+## Challenge
+Write a function that left-joins two HashMaps.
+
+## Approach & Efficiency
+My implementation returns an array of arrays, each containing a key from the first HashMap, its value in the first HashMap, and its value in the second HashMap (or null if the second HashMap doesn't contain the key). It iterates over the first HashMap once, checking the second one at each iteration, which makes it O(n) for time complexity. Because it creates an array of arrays containing potentially all values in each HashMap, its space complexity is also O(n).
+
+## API
+
+  - `leftJoin(HashMap<String, String> syn, HashMap<String, String> ant)` Left joins the two HashMaps and returns an array of String arrays in a [key, value of key in HM1, value of key in HM2] format.
+
+  - `stringify(String[][] input)` Returns a string of the array of string arrays.
+
+## Solution
+
+  ![Whiteboard](./assets/leftjoin.png)
+
+  [code](./utilities/src/main/java/utilities/LeftJoin.java)
 
 
 
