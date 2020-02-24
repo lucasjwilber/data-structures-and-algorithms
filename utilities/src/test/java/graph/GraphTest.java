@@ -78,4 +78,23 @@ public class GraphTest {
         Graph.Edge edge = graph.addEdge(node1, null);
         assertEquals(1, edge.node1.value);
     }
+    @Test
+    public void graph_getNodesReturnsListOfNodes() {
+        graph = new Graph();
+        graph.addNode(1);
+        graph.addNode(2);
+        graph.addNode(5522342);
+        assertEquals(3, graph.getNodes().size());
+    }
+    @Test
+    public void graph_getNeighborsReturnsAHashTableOfNeighbors() {
+        graph = new Graph();
+        Graph.Node node1 = graph.addNode(1);
+        Graph.Node node2 = graph.addNode(2);
+
+        assertEquals(0, graph.getNeighbors(node1).size());
+
+        graph.addEdge(node1, node2);
+        assertEquals(1, graph.getNeighbors(node1).size());
+    }
 }
