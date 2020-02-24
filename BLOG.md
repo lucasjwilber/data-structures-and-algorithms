@@ -102,7 +102,7 @@ This approach splits the input array in half log(n) times, creating n arrays. It
 This sorting method works by recursively declaring a value in the array as the 'pivot' and moving all values less than the pivot into a 'left' section, and all greater values into a 'right' section, until all values have been sorted. This version uses a main method, a recurisve partitioning method, and a swap method to accomplish this.
 
 ## Algorithm
-The Quicksort method accepts the array and the left and right bounds that need to be sorted. Within this method the Partition method is called to divide the array and sort via a pivot value, then this Quicksort method is recursively called on the sections of the array on each side of the pivot value. 
+The Quicksort method accepts the array and the left and right bounds of the portion to be sorted. Within this method the Partition method is called to divide the array and sort it via a pivot value. This process is repeated recursively on each side of the resulting index of the pivot value.
 
 The Partition method takes the rightmost value in the array to use as the pivot value, uses two variables to iterate from the ends of the array towards the center, and uses the Swap method to swap values as necessary so that all values left of the pivot are less than or equal to the pivot value and vice versa.
 
