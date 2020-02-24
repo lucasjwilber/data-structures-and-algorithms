@@ -543,4 +543,23 @@ My implementation returns an array of arrays, each containing a key from the fir
   [code](./utilities/src/main/java/utilities/LeftJoin.java)
 
 
+  
+
+# Tree Intersection
+
+## Challenge
+Write a function that, given two Binary Trees, returns a set of values found in both trees.
+
+## Approach & Efficiency
+For this problem, I decided to use a breadth-first traversal of each tree to gather the values of one tree into a set and compare the values of the other tree with that set, putting common values into a second set, which is returned. This is an O(n) solution for both time and space.
+
+## API
+
+  - `treeIntersection(BinaryTree t1, BinaryTree t2)` Returns a set of values that are in both trees.
+
+## Solution
+
+  [code](./utilities/src/main/java/tree/BinaryTree.java)
+
+
 
