@@ -1,24 +1,25 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 public class Graph {
 
     List<Node> nodes = new ArrayList<>();
 
-    private class Node {
+    public class Node {
         List<Edge> edges;
-        List<Node> neighbors;
+        Hashtable<Node, Integer> neighbors;
         int value;
         Node(int value) {
             this.value = value;
             this.edges = new ArrayList<>();
-            this.neighbors = new ArrayList<>();
+            this.neighbors = new Hashtable<>();
         }
     }
 
-    private class Edge {
+    public class Edge {
         Node node1;
         Node node2;
         int weight;
@@ -35,46 +36,46 @@ public class Graph {
         void setWeight(int weight) { this.weight = weight; }
     }
 
-    private Node addNode(int value) {
+    public Node addNode(int value) {
         Node node = new Node(value);
         nodes.add(node);
         return node;
     }
 
-    private Edge addEdge(Node node1, Node node2) {
+    public Edge addEdge(Node node1, Node node2) {
         if (nodes.contains(node1) && nodes.contains(node2)) {
             Edge edge = new Edge(node1, node2);
             node1.edges.add(edge);
-            node1.neighbors.add(node2);
+            node1.neighbors.put(node2, 0);
             node2.edges.add(edge);
-            node2.neighbors.add(node1);
+            node2.neighbors.put(node1, 0);
             return edge;
         } else {
             return null;
         }
     }
-    private Edge addEdge(Node node1, Node node2, int weight) {
+    public Edge addEdge(Node node1, Node node2, int weight) {
         if (nodes.contains(node1) && nodes.contains(node2)) {
             Edge edge = new Edge(node1, node2, weight);
             node1.edges.add(edge);
-            node1.neighbors.add(node2);
+            node1.neighbors.put(node2, weight);
             node2.edges.add(edge);
-            node2.neighbors.add(node1);
+            node2.neighbors.put(node1, weight);
             return edge;
         } else {
             return null;
         }
     }
 
-    private List<Node> getNodes() {
+    public List<Node> getNodes() {
         return this.nodes;
     }
 
-    public List<Node> getNeighbors(Node node) {
+    public Hashtable<Node, Integer> getNeighbors(Node node) {
         return node.neighbors;
     }
 
-    private int size() {
+    public int size() {
         return this.nodes.size();
     }
 
