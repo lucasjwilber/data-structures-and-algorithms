@@ -50,8 +50,8 @@ Define the merge method, which
 ## Pseudo Code
   
     ALGORITHM Mergesort(arr)
+    
     DECLARE n <-- arr.length
-           
     if n > 1
       DECLARE mid <-- n/2
       DECLARE left <-- arr[0...mid]
@@ -62,12 +62,13 @@ Define the merge method, which
       Mergesort(right)
       // merge the sorted left and right sides together
       Merge(left, right, arr)
-
-ALGORITHM Merge(left, right, arr)
+     
+     
+    ALGORITHM Merge(left, right, arr)
+    
     DECLARE i <-- 0
     DECLARE j <-- 0
     DECLARE k <-- 0
-
     while i < left.length && j < right.length
         if left[i] <= right[j]
             arr[k] <-- left[i]
