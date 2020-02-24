@@ -559,6 +559,9 @@ For this problem, I decided to use a breadth-first traversal of each tree to gat
 
 ## Solution
 
+  ![Whiteboard](./assets/tree-intersection.png)
+
+
   [code](./utilities/src/main/java/tree/BinaryTree.java)
 
 
