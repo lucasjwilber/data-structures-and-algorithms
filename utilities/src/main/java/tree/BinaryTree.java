@@ -1,11 +1,7 @@
 package tree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
-import static java.lang.Integer.max;
 import static java.lang.Integer.parseInt;
 
 public class BinaryTree {
@@ -86,6 +82,29 @@ public class BinaryTree {
             }
             return maxValue;
         }
+    }
+
+    public static Set<Integer> treeIntersection(BinarySearchTree t1, BinarySearchTree t2) {
+        Set<Integer> matches = new HashSet<>();
+        Set<Integer> values = new HashSet<>();
+        LinkedList<Node> queue = new LinkedList<>();
+        //gather all unique values in one tree
+        if (t1.root != null) queue.add(t1.root);
+        while (!queue.isEmpty()) {
+            Node current = queue.removeFirst();
+            values.add(current.value);
+            if (current.left != null) queue.addLast(current.left);
+            if (current.right != null) queue.addLast(current.right);
+        }
+        //check the other tree for matches, add them to the set
+        if (t2.root != null) queue.add(t2.root);
+        while (!queue.isEmpty()) {
+            Node current = queue.removeFirst();
+            if (values.contains(current.value)) matches.add(current.value);
+            if (current.left != null) queue.addLast(current.left);
+            if (current.right != null) queue.addLast(current.right);
+        }
+        return matches;
     }
 
 }
