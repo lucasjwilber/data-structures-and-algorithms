@@ -94,10 +94,35 @@ public class BinaryTreeAndBinarySearchTreeTest {
         assertEquals(0, findMaximumValue(emptyTree));
     }
     @Test
-    public void treeIntersection_worksOnEmptyTrees() {
+    public void treeIntersection_returnsEmptySetWithEmptyTrees() {
         BinarySearchTree t1 = new BinarySearchTree();
         BinarySearchTree t2 = new BinarySearchTree();
         HashSet<Integer> emptySet = new HashSet<>();
         assertEquals(emptySet, treeIntersection(t1, t2));
+    }
+    @Test
+    public void treeIntersection_returnsNoDuplicates() {
+        BinarySearchTree t1 = new BinarySearchTree();
+        BinarySearchTree t2 = new BinarySearchTree();
+        t1.add(1);
+        t1.add(2);
+        t1.add(3);
+        t2.add(1);
+        t2.add(1);
+        t2.add(3);
+        String expected = "[1, 3]";
+        assertEquals(expected, treeIntersection(t1, t2).toString());
+    }
+    @Test
+    public void treeIntersection_worksWithTreesOfDifferentSizes() {
+        BinarySearchTree t1 = new BinarySearchTree();
+        BinarySearchTree t2 = new BinarySearchTree();
+        t1.add(1);
+        t1.add(2);
+        t1.add(3);
+        t1.add(4);
+        t2.add(3);
+        String expected = "[3]";
+        assertEquals(expected, treeIntersection(t1, t2).toString());
     }
 }
