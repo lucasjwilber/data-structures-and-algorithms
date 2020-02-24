@@ -561,8 +561,35 @@ For this problem, I decided to use a breadth-first traversal of each tree to gat
 
   ![Whiteboard](./assets/tree-intersection.png)
 
-
   [code](./utilities/src/main/java/tree/BinaryTree.java)
+
+  
+
+# Graph
+
+## Challenge
+Implement a Graph class with the following methods: addNode(), addEdge(), getNodes(), getNeighbors(), size().
+
+## Approach & Efficiency
+I built my Graph class from scratch to use a Node subclass with int values, each of which has a Hashtable of neighbors in order to map neighbors with edge weight. Each Node also contains an ArrayList of Edges. Edges are a subclass which contains fields for two Nodes and int weight. The Graph itself has an ArrayList of all nodes it contains, which is updated whenever a new Node is created.
+
+## API
+
+  - `addNode(int value)` Creates a new Node with the given value, adds it to the Graph's list of Nodes, and returns it.
+
+  - `addEdge(Node node1, Node node2)` Creates a new Edge with weight 0 connecting the given Nodes. Adds each Node to the neightbors Hashtable of the other node, with a weight of 0.
+
+  - `addEdge(Node node1, Node node2, int weight)` Creates a new Edge with the given weight connecting the given Nodes. Adds each Node to the neightbors Hashtable of the other node, with the given weight as the value.
+
+  - `getNodes()` Returns an ArrayList containing all Nodes in the Graph.
+
+  - `getNeighbors(Node node)` Returns a Hashtable of all neighbors of the given Node mapped to the weight of their connecting Edges.
+
+  - `size()` Returns the int count of all Nodes in the Graph.
+
+## Solution
+
+  [code](./utilities/src/main/java/graph/Graph.java)
 
 
 

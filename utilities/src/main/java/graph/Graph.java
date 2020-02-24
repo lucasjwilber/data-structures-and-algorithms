@@ -79,16 +79,4 @@ public class Graph {
         return this.nodes.size();
     }
 
-    public static void main(String[] args) {
-        Graph graph = new Graph();
-        Node node1 = graph.addNode(1);
-        Node node2 = graph.addNode(2);
-        Node node3 = graph.addNode(3);
-        Edge edge12 = graph.addEdge(node1, node2);
-        Edge edge23 = graph.addEdge(node2, node3);
-        Edge edge13 = graph.addEdge(node1, node3);
-        System.out.println(graph.size());
-    }
-
-
 }
