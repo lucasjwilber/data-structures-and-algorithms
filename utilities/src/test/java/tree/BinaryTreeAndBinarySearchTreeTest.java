@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 import static tree.BinaryTree.*;
@@ -90,5 +92,12 @@ public class BinaryTreeAndBinarySearchTreeTest {
     @Test public void findMaximumValueReturnsZeroWithEmptyTree() {
         BinarySearchTree emptyTree = new BinarySearchTree();
         assertEquals(0, findMaximumValue(emptyTree));
+    }
+    @Test
+    public void treeIntersection_worksOnEmptyTrees() {
+        BinarySearchTree t1 = new BinarySearchTree();
+        BinarySearchTree t2 = new BinarySearchTree();
+        HashSet<Integer> emptySet = new HashSet<>();
+        assertEquals(emptySet, treeIntersection(t1, t2));
     }
 }
