@@ -593,3 +593,25 @@ I built my Graph class from scratch to use a Node subclass with int values, each
 
 
 
+  
+
+# Breadth First Graph Traversal
+
+## Challenge
+Implement Breadth First traversal through a Graph.
+
+## Approach & Efficiency
+My approach is similar to that of a breadth first traversal through a Binary Tree, using a Queue to traverse one "layer" at a time. In order to prevent circular traversing I keep a HashSet of seen Nodes which is checked before enqueuing a Node, and all Nodes in the Queue are added to the HashSet.
+
+## API
+
+  - `breadthFirst(Node node)` Traverses the Graph breadth-first from the given Node, returning a List of Node values.
+
+## Solution
+
+  ![Whiteboard](./assets/breadth-first-graph.png)
+
+  [code](./utilities/src/main/java/graph/BreadthFirst.java)
+
+
+
