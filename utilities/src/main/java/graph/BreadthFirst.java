@@ -15,9 +15,9 @@ public class BreadthFirst {
             Graph.Node current = queue.removeFirst();
             if (seenNodes.contains(current)) continue;
             seenNodes.add(current);
-            results.add(current.value);
-            for (Graph.Node neighbor : current.neighbors.keySet()) {
-                if (!seenNodes.contains(neighbor)) queue.addLast(neighbor);
+            results.add((Integer) current.value);
+            for (Object neighbor : current.neighbors.keySet()) {
+                if (!seenNodes.contains(neighbor)) queue.addLast((Graph.Node) neighbor);
             }
         }
         return results;

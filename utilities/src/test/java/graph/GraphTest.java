@@ -9,19 +9,19 @@ public class GraphTest {
 
     @Test
     public void graph_canInstantiate() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         assertNotNull(graph);
     }
     @Test
     public void graph_canAddNewNodes() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         Graph.Node node1 = graph.addNode(1);
         assertNotNull(node1);
         assertEquals(1, node1.value);
     }
     @Test
     public void graph_canAddEdges() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
         Graph.Edge edge = graph.addEdge(node1, node2);
@@ -29,7 +29,7 @@ public class GraphTest {
     }
     @Test
     public void graph_canAddEdgesWithWeight() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
         Graph.Edge edge = graph.addEdge(node1, node2, 10);
@@ -38,15 +38,16 @@ public class GraphTest {
     }
     @Test
     public void graph_canGetEdgeWeight() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
         Graph.Edge edge = graph.addEdge(node1, node2, 10);
-        assertEquals(10, node1.edges.get(0).weight);
+        Graph.Edge actual = (Graph.Edge) node1.edges.get(0);
+        assertEquals(10, actual.weight);
     }
     @Test
     public void graph_edgesAddToNodeNeighborsList() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
         Graph.Edge edge = graph.addEdge(node1, node2);
@@ -55,7 +56,7 @@ public class GraphTest {
     }
     @Test
     public void graph_canGetListOfAllNodes() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
         Graph.Node node3 = graph.addNode(223);
@@ -64,23 +65,23 @@ public class GraphTest {
     }
     @Test
     public void graph_nodeNeighborsContainNodesAndWeights() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
         Graph.Edge edge = graph.addEdge(node1, node2, 50);
-        assertTrue(node1.neighbors.get(node2) == 50);
-        assertTrue(node2.neighbors.get(node1) == 50);
+        assertTrue(node1.neighbors.get(node2).equals(50));
+        assertTrue(node2.neighbors.get(node1).equals(50));
     }
     @Test(expected = NullPointerException.class)
     public void graph_edgesRequireTwoExistingNodes() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         Graph.Node node1 = graph.addNode(1);
         Graph.Edge edge = graph.addEdge(node1, null);
         assertEquals(1, edge.node1.value);
     }
     @Test
     public void graph_getNodesReturnsListOfNodes() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         graph.addNode(1);
         graph.addNode(2);
         graph.addNode(5522342);
@@ -88,7 +89,7 @@ public class GraphTest {
     }
     @Test
     public void graph_getNeighborsReturnsAHashTableOfNeighbors() {
-        graph = new Graph();
+        graph = new Graph<Integer, Integer>();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
 
