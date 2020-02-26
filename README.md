@@ -563,6 +563,7 @@ For this problem, I decided to use a breadth-first traversal of each tree to gat
 
   [code](./utilities/src/main/java/tree/BinaryTree.java)
 
+
   
 
 # Graph
@@ -594,7 +595,6 @@ I built my Graph class from scratch to use a Node subclass with int values, each
 
 
   
-
 # Breadth First Graph Traversal
 
 ## Challenge
@@ -612,6 +612,30 @@ My approach is similar to that of a breadth first traversal through a Binary Tre
   ![Whiteboard](./assets/breadth-first-graph.png)
 
   [code](./utilities/src/main/java/graph/BreadthFirst.java)
+
+
+  
+
+# Direct Graph Traversal
+
+## Challenge
+Implement a method which accepts a Graph and an array of values, and returns an object with the following properties:
+- isDirectlyLinked: true or false, if the given array of values corresponds to the values of a chain of nodes in the graph which connect in the same order as the given array, with no other nodes in between
+- sum: the sum of the weights of the edges connecting all of the nodes traversed, or 0 if the nodes are not directly linked.
+
+## Approach & Efficiency
+First, the node with the value corresponding to the input array at 0 is found via an O(n) iteration through all nodes in the graph. Then a loop runs once for each index in the input array starting at index 1, and within this loop each node's list of neighbors is checked for a value corresponding to the index of the input array at the loop count. If one is found, its weight is added to a sum variable and the loop continues, if one is not found, the function returns {false, 0}. If the loop successfully completes without returning false, the next step of the method returns {true, [sum]}. Each step of the loop iterates over an n-length list of neighbors, and the input array is worst-case n-length also, making this process O(n squared), for a total of O(n squared + n) time complexity. 
+My solution also creates an array of neighbor nodes for which to iterate through at each step, making the space complexity O(n).
+
+## API
+
+  - `directRoute(Graph graph, String[] values)` If 'values' represents a chain of nodes in 'graph' that are directly linked, returns {true, [sum of weights of edges traversed]}, else returns {false, 0}.
+
+## Solution
+
+  ![Whiteboard](./assets/get-edge.png)
+
+  [code](./utilities/src/main/java/graph/GetEdge.java)
 
 
 
