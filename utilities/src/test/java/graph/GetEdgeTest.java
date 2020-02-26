@@ -32,35 +32,35 @@ public class GetEdgeTest {
     public void getEdge_returnsFalseIfThereIsNoDirectFlight() {
         String[] itinerary1 = new String[]{"Naboo", "Pandora"};
         String[] itinerary2 = new String[]{"Narnia", "Arendelle", "Naboo"};
-        GetEdge.Response trip1 = GetEdge.directFlights(map, itinerary1);
-        GetEdge.Response trip2 = GetEdge.directFlights(map, itinerary2);
+        GetEdge.Response trip1 = GetEdge.directRoute(map, itinerary1);
+        GetEdge.Response trip2 = GetEdge.directRoute(map, itinerary2);
 
-        assertFalse(trip1.canMakeDirectTrip);
-        assertFalse(trip2.canMakeDirectTrip);
+        assertFalse(trip1.canMakeDirectRoute);
+        assertFalse(trip2.canMakeDirectRoute);
     }
 
     @Test
     public void getEdge_returnsTrueIfThereIsADirectFlight() {
         String[] itinerary1 = new String[]{"Metroville", "Pandora"};
         String[] itinerary2 = new String[]{"Arendelle", "Monstropolis", "Naboo"};
-        GetEdge.Response trip1 = GetEdge.directFlights(map, itinerary1);
-        GetEdge.Response trip2 = GetEdge.directFlights(map, itinerary2);
+        GetEdge.Response trip1 = GetEdge.directRoute(map, itinerary1);
+        GetEdge.Response trip2 = GetEdge.directRoute(map, itinerary2);
 
-        assertTrue(trip1.canMakeDirectTrip);
-        assertTrue(trip2.canMakeDirectTrip);
+        assertTrue(trip1.canMakeDirectRoute);
+        assertTrue(trip2.canMakeDirectRoute);
     }
 
     @Test
     public void getEdge_returnsCostOfZeroIfThereIsNoDirectFlight() {
         String[] itinerary = new String[]{"Narnia", "Arendelle", "Naboo"};
-        GetEdge.Response trip = GetEdge.directFlights(map, itinerary);
-        assertEquals("$0", trip.cost);
+        GetEdge.Response trip = GetEdge.directRoute(map, itinerary);
+        assertEquals(0, trip.sumOfWeights);
     }
 
     @Test
     public void getEdge_returnsActualCostForDirectFlights() {
         String[] itinerary = new String[]{"Arendelle", "Monstropolis", "Naboo"};
-        GetEdge.Response trip = GetEdge.directFlights(map, itinerary);
-        assertEquals("$115", trip.cost);
+        GetEdge.Response trip = GetEdge.directRoute(map, itinerary);
+        assertEquals(115, trip.sumOfWeights);
     }
 }
