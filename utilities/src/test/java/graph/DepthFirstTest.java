@@ -4,9 +4,9 @@ import org.junit.Test;
 import java.util.List;
 import static org.junit.Assert.*;
 
-public class BreadthFirstTest {
+public class DepthFirstTest {
     @Test
-    public void breadthFirst_handlesCircularGraph() {
+    public void depthFirst_handlesCircularGraph() {
         Graph graph = new Graph();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
@@ -15,10 +15,10 @@ public class BreadthFirstTest {
         graph.addEdge(node2, node3);
         graph.addEdge(node1, node3);
         //basically asserts that an infinite loop doesn't lock up the test
-        System.out.println(BreadthFirst.breadthFirst(node1));
+        System.out.println(DepthFirst.depthFirst(node1));
     }
     @Test
-    public void breadthFirst_outputIsBreadthFirst() {
+    public void depthFirst_outputIsDepthFirst() {
         Graph graph = new Graph();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
@@ -35,20 +35,20 @@ public class BreadthFirstTest {
         graph.addEdge(node6, node5);
         graph.addEdge(node6, node2);
         //this as long as indexes 1, 2, and 3 contain ints 2/3/4 in any order it is
-        // correctly traversing breadth first. however it seems to adding them in different
+        // correctly traversing depth first. however it seems to adding them in different
         //orders with each test. hence the stupid test below
-        List<Integer> result = BreadthFirst.breadthFirst(node1);
+        List<Integer> actual = DepthFirst.depthFirst(node1);
         boolean test = false;
-        if (result.get(1) == 2 || result.get(2) == 2 || result.get(3) == 2 &&
-            result.get(1) == 3 || result.get(2) == 3 || result.get(3) == 3 &&
-            result.get(1) == 4 || result.get(2) == 4 || result.get(3) == 4)
+        if (actual.get(1) == 2 || actual.get(1) == 3 || actual.get(1) == 4 &&
+                actual.get(2) == 5 || actual.get(2) == 6 &&
+                actual.get(3) == 5 || actual.get(3) == 6)
         {
             test = true;
         }
         assertTrue(test);
     }
     @Test
-    public void breadthFirst_returnsListWithSizeEqualOrLessThanGraphSize() {
+    public void depthFirst_returnsListWithSizeEqualOrLessThanGraphSize() {
         Graph graph = new Graph();
         Graph.Node node1 = graph.addNode(1);
         Graph.Node node2 = graph.addNode(2);
@@ -59,6 +59,6 @@ public class BreadthFirstTest {
         graph.addEdge(node2, node3);
         graph.addEdge(node3, node4);
         graph.addEdge(node4, node5);
-        assertTrue(BreadthFirst.breadthFirst(node3).size() >= graph.size());
+        assertTrue(DepthFirst.depthFirst(node3).size() >= graph.size());
     }
 }

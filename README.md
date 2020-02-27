@@ -639,3 +639,24 @@ My solution also creates an array of neighbor nodes for which to iterate through
 
 
 
+
+# Depth First Graph Traversal
+
+## Challenge
+Implement a method which traverses a Graph depth-first from a given node.
+
+## Approach & Efficiency
+My solution for this is almost identical to my Breadth First traversal, with the only difference being that it uses a Stack rather than a Queue.
+
+## API
+
+  - `depthFirst(Graph.Node node)` Traverses a Graph depth-first from the given node, and returns a list of node values.
+
+## Solution
+
+  ![Whiteboard](./assets/depth-first-graph.png)
+
+  [code](./utilities/src/main/java/graph/DepthFirst.java)
+
+
+
