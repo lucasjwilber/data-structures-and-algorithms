@@ -654,7 +654,7 @@ My solution for this is almost identical to my Breadth First traversal, with the
 
 ## Solution
 
-  ![Whiteboard](./assets/depth-first.png)
+  ![Whiteboard](./assets/depth-first-graph.png)
 
   [code](./utilities/src/main/java/graph/DepthFirst.java)
 
