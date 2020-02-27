@@ -3,7 +3,7 @@ package graph;
 import java.util.*;
 
 public class DepthFirst {
-    public static List<Integer> breadthFirst(Graph.Node node) {
+    public static List<Integer> depthFirst(Graph.Node node) {
         Set<Graph.Node> seenNodes = new HashSet<>();
         List<Integer> results = new ArrayList<>();
         LinkedList<Graph.Node> queue = new LinkedList<>();
